@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhLam.Recruiter.Domain", "MinhLam.Recruiter.Domain\MinhLam.Recruiter.Domain.csproj", "{EE7214EE-F6BF-477B-96E1-17ADC76C9951}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhLam.Framework", "MinhLam.Framework\MinhLam.Framework.csproj", "{779975FB-05D6-4886-A7C3-27D36F77D0BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhLam.Recruiter.WebForms", "MinhLam.Recruiter.WebForms\MinhLam.Recruiter.WebForms.csproj", "{822F7DDD-6D02-4F4D-9F8E-9AA307849B86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhLam.Recruiter.Infrastructure", "MinhLam.Recruiter.Infrastructure\MinhLam.Recruiter.Infrastructure.csproj", "{1F750138-A64F-477A-A18A-65BB7AA0A5DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhLam.Recruiter.Application", "MinhLam.Recruiter.Application\MinhLam.Recruiter.Application.csproj", "{CFA89A65-41D2-42D6-959E-DBDC389C5382}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE7214EE-F6BF-477B-96E1-17ADC76C9951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE7214EE-F6BF-477B-96E1-17ADC76C9951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE7214EE-F6BF-477B-96E1-17ADC76C9951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE7214EE-F6BF-477B-96E1-17ADC76C9951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{779975FB-05D6-4886-A7C3-27D36F77D0BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779975FB-05D6-4886-A7C3-27D36F77D0BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779975FB-05D6-4886-A7C3-27D36F77D0BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779975FB-05D6-4886-A7C3-27D36F77D0BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822F7DDD-6D02-4F4D-9F8E-9AA307849B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822F7DDD-6D02-4F4D-9F8E-9AA307849B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822F7DDD-6D02-4F4D-9F8E-9AA307849B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822F7DDD-6D02-4F4D-9F8E-9AA307849B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F750138-A64F-477A-A18A-65BB7AA0A5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F750138-A64F-477A-A18A-65BB7AA0A5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F750138-A64F-477A-A18A-65BB7AA0A5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F750138-A64F-477A-A18A-65BB7AA0A5DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFA89A65-41D2-42D6-959E-DBDC389C5382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFA89A65-41D2-42D6-959E-DBDC389C5382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFA89A65-41D2-42D6-959E-DBDC389C5382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFA89A65-41D2-42D6-959E-DBDC389C5382}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03B4169B-1977-475C-9A9E-F5CDF9E7E1FB}
+	EndGlobalSection
+EndGlobal

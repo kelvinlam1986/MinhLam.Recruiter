@@ -1,0 +1,23 @@
+<Advertisements>
+   <Ad>      
+     <ImageUrl>advs/logo1.gif</ImageUrl>
+     <NavigateUrl>http://www.huukhang.com/training/asp.aspx?type=class</NavigateUrl>
+     <AlternateText>C# 2005</AlternateText>
+     <Impressions>30</Impressions>
+     <Keyword>C# for developing Desktop Application.</Keyword>
+   </Ad>
+   <Ad>
+     <ImageUrl>advs/logo2.gif</ImageUrl>
+     <NavigateUrl>http://www.kinhdo.com</NavigateUrl>
+     <AlternateText>ASP.NET 2.0</AlternateText>
+     <Impressions>30</Impressions>
+     <Keyword>C#  for developing  Web Application.</Keyword>
+   </Ad>
+	<Ad>
+		<ImageUrl>advs/logo3.gif</ImageUrl>
+		<NavigateUrl>http://www.huukhang.com/training/php.aspx?type=class</NavigateUrl>
+		<AlternateText>ASP.NET 2.0</AlternateText>
+		<Impressions>30</Impressions>
+		<Keyword>C#  for developing  Web Application.</Keyword>
+	</Ad>
+</Advertisements>
