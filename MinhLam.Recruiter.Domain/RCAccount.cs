@@ -347,6 +347,65 @@ namespace MinhLam.Recruiter.Domain
             Password = hashedPassword;
         }
 
+        public static string GetPassword(
+            string email, 
+            string companyName, 
+            string englishName, 
+            DateTime dateOfEstablished, 
+            ICheckExisting checkExisting,
+            IGetData getData,
+            IHashedPassword hashedPassword)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                throw new DomainException(
+                    DomainExceptionCode.EmailRequiredField,
+                    "Bạn phải nhập địa chỉ email");
+            }
+
+            if (string.IsNullOrWhiteSpace(companyName))
+            {
+                throw new DomainException(
+                    DomainExceptionCode.CompanyNameRequiredField,
+                    "Bạn phải nhập tên công ty");
+            }
+
+            if (string.IsNullOrWhiteSpace(englishName))
+            {
+                throw new DomainException(
+                    DomainExceptionCode.EnglishNameRequiredField,
+                    "Bạn phải nhập Tên tiếng Anh");
+            }
+
+            if (dateOfEstablished == null || dateOfEstablished == DateTime.MinValue)
+            {
+                throw new DomainException(
+                    DomainExceptionCode.DateOfEstablihsedRequiredField,
+                    "Bạn phải chọn ngày thành lập công ty");
+            }
+
+            if (checkExisting.RCAccountExistWithEmail(email) == false)
+            {
+                throw new DomainException(DomainExceptionCode.RCAccountCanNotFound,
+                    $"Không tìm thấy tải khoản với email {email}");
+            }
+
+            var account = getData.GetRCAccountByEmail(email);
+            if (account.Email == email 
+                && account.CompanyName == companyName 
+                && account.EnglishName == englishName 
+                && account.OpenDate.Value.CompareOnlyDate(dateOfEstablished))
+            {
+                var oldPassword = hashedPassword.GetPurePassword(account.Password, account.Email);
+                return oldPassword;
+            }
+            else
+            {
+                throw new DomainException(DomainExceptionCode.CannotGetOldPassword,
+                    "Không thể lấy mật khẩu. Một trong những thông tin bạn cung cấp không đúng");
+            }
+        }
+
         public void DecreaseAvailablePosting(ICheckExisting checkExisting)
         {
             if (checkExisting.RCAccountExistWithId(Id) == false)

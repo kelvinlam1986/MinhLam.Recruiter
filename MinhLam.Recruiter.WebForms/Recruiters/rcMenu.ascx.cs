@@ -17,8 +17,8 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
             switch (pageCall)
             {
                 case "::Tài khoản của tôi":
-                case "::Company Profile":
-                case "::Change Password":
+                case "::Thông tin công ty":
+                case "::Đổi mật khẩu":
                 case "::Cập nhật thông tin đăng nhập":
 
                     hyperLink = new HyperLink();
@@ -126,36 +126,39 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                     hyperLink.Text = "Job Folders";
                     hyperLink.NavigateUrl = "jobfolders.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
-                    literal = new Literal();
-                    literal.Text = " | ";
-                    this.panelMenu.Controls.Add(literal);
-                    hyperLink = new HyperLink();
-                    hyperLink.Text = "Logout";
-                    hyperLink.NavigateUrl = "logout.aspx";
-                    this.panelMenu.Controls.Add(hyperLink);
+                    if (Session.Contents["rcuserid"] != null)
+                    {
+                        literal = new Literal();
+                        literal.Text = " | ";
+                        this.panelMenu.Controls.Add(literal);
+                        hyperLink = new HyperLink();
+                        hyperLink.Text = "Đăng xuất";
+                        hyperLink.NavigateUrl = "Logout.aspx";
+                        this.panelMenu.Controls.Add(hyperLink);
+                    }
                     break;
-                case "::Login":
+                case "::Đăng nhập":
                 case "::Log out":
                 case "::Job Tools":
-                case "::New Registration":
-                case "::Forgot Password":
+                case "::Đăng ký mới":
+                case "::Quên mật khẩu":
                     hyperLink = new HyperLink();
                     hyperLink.Text = "Đăng nhập";
-                    hyperLink.NavigateUrl = "login.aspx";
+                    hyperLink.NavigateUrl = "Login.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
                     literal.Text = " | ";
                     this.panelMenu.Controls.Add(literal);
                     hyperLink = new HyperLink();
                     hyperLink.Text = "Đăng ký";
-                    hyperLink.NavigateUrl = "register.aspx";
+                    hyperLink.NavigateUrl = "Register.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
                     literal.Text = " | ";
                     this.panelMenu.Controls.Add(literal);
                     hyperLink = new HyperLink();
                     hyperLink.Text = "Quên mật khẩu";
-                    hyperLink.NavigateUrl = "forgotpassword.aspx";
+                    hyperLink.NavigateUrl = "ForgotPassword.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
                     literal.Text = " | ";
@@ -214,8 +217,8 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                         literal.Text = " | ";
                         this.panelMenu.Controls.Add(literal);
                         hyperLink = new HyperLink();
-                        hyperLink.Text = "Logout";
-                        hyperLink.NavigateUrl = "logout.aspx";
+                        hyperLink.Text = "Đăng xuất";
+                        hyperLink.NavigateUrl = "Logout.aspx";
                         this.panelMenu.Controls.Add(hyperLink);
                     }
                     break;

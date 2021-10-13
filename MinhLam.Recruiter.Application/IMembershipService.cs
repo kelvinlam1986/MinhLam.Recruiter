@@ -13,5 +13,6 @@ namespace MinhLam.Recruiter.Application
         void RCUpdateCompany(RCUpdateCompanyCommand cmd);
         void RCUploadLogo(RCUploadLogoCommand cmd);
         void RCChangePassword(RCChangePasswordCommand cmd);
+        string RCGetForgetPassword(RCForgotPasswordCommand cmd);
     }
 }

@@ -51,6 +51,21 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
             this.sendEmail.SendChangePasswordSuccessfulRCAccount(cmd.Email);
         }
 
+        public string RCGetForgetPassword(RCForgotPasswordCommand cmd)
+        {
+            string forgotPassword = RCAccount.GetPassword(
+                cmd.Email,
+                cmd.CompanyName,
+                cmd.EnglishName,
+                cmd.DateEstablished,
+                checkExisting,
+                getData,
+                hashedPassword);
+
+            this.sendEmail.SendForgotPasswordRCAccount(cmd.Email, forgotPassword);
+            return forgotPassword;
+        }
+
         public void RCLogin(RCLoginCommand cmd)
         {
             var loggedInAccount = RCAccount.Login(cmd.Email, cmd.PurePassword, hashedPassword, getData);

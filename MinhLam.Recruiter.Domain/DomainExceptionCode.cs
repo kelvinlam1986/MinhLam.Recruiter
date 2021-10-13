@@ -15,5 +15,7 @@
         public const string ContactRequiredField = "contact_required_field";
         public const string AddressRequiredField = "address_required_field";
         public const string TelephoneRequiredField = "telephone_required_field";
+        public const string DateOfEstablihsedRequiredField = "date_of_established_required_field";
+        public const string CannotGetOldPassword = "cannot_get_old_password";
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="ApplicationServiceException.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Cryptography.cs" />
+    <Compile Include="DateTimeExtension.cs" />
     <Compile Include="DomainEvents.cs" />
     <Compile Include="DomainException.cs" />
     <Compile Include="EmailHelper.cs" />

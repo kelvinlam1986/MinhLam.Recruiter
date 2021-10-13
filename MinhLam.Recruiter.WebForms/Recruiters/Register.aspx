@@ -8,12 +8,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head id="Head1" runat="server">
-        <title>::RCV Account</title>
+        <title>::Đăng ký mới</title>
         <link href="Css/newstyle.css" rel="stylesheet" />
         <link href="Css/style.css" rel="stylesheet" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
-    <body topmargin=0 leftmargin=0 bottommargin=0 rightmargin=0 style="font-size: 12pt">
+    <body topmargin="0" leftmargin="0" bottommargin="0" rightmargin="0" style="font-size: 12pt">
         <form id="form1" runat="server">
             <div>
                 <table align="center" style="width: 960px" title="Xinviecnhanh Tài khoản">

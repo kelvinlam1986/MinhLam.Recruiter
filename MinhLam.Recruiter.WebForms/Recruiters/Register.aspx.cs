@@ -42,7 +42,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
         private void NotLogin()
         {
             lblHeader.Text = "Đăng ký mởi";
-            this.Title = "::Đăng ký mởi";
+            this.Title = "::Đăng ký mới";
             literalMessage.Visible = true;
             trTermofService.Visible = true;
             trAgree.Visible = true;

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\RCChangePasswordCommand.cs" />
+    <Compile Include="Commands\RCForgotPasswordCommand.cs" />
     <Compile Include="Commands\RCLoginCommand.cs" />
     <Compile Include="Commands\RCRegisterAccountCommand.cs" />
     <Compile Include="Commands\RCResetHitViewCommand.cs" />

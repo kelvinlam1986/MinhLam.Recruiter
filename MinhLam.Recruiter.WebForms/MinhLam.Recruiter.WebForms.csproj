@@ -160,6 +160,7 @@
     <Content Include="Recruiters\ChangePassword.aspx" />
     <Content Include="Recruiters\Css\newstyle.css" />
     <Content Include="Recruiters\Css\style.css" />
+    <Content Include="Recruiters\ForgotPassword.aspx" />
     <Content Include="Recruiters\Icons\titlenote.gif" />
     <Content Include="Recruiters\Icons\warning.gif" />
     <Content Include="Recruiters\Images\blank.gif" />
@@ -168,6 +169,7 @@
     <Content Include="Recruiters\Images\recruitvietnam.gif" />
     <Content Include="Recruiters\Login.aspx" />
     <Content Include="Recruiters\Logo.aspx" />
+    <Content Include="Recruiters\Logout.aspx" />
     <Content Include="Recruiters\MyAccount.aspx" />
     <Content Include="Recruiters\Profile.aspx" />
     <Content Include="Recruiters\rcBanner.ascx" />
@@ -248,6 +250,13 @@
     <Compile Include="Recruiters\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Recruiters\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recruiters\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recruiters\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -261,6 +270,13 @@
     </Compile>
     <Compile Include="Recruiters\Logo.aspx.designer.cs">
       <DependentUpon>Logo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recruiters\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recruiters\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recruiters\MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
