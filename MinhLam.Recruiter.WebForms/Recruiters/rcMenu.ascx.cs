@@ -16,42 +16,42 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
             Literal literal;
             switch (pageCall)
             {
-                case "::My Account":
+                case "::Tài khoản của tôi":
                 case "::Company Profile":
                 case "::Change Password":
-                case "::Update Login Information":
+                case "::Cập nhật thông tin đăng nhập":
 
                     hyperLink = new HyperLink();
-                    hyperLink.Text = "Update Account";
-                    hyperLink.NavigateUrl = "register.aspx";
+                    hyperLink.Text = "Cập nhật tài khoản";
+                    hyperLink.NavigateUrl = "Register.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
                     literal.Text = " | ";
                     this.panelMenu.Controls.Add(literal);
                     hyperLink = new HyperLink();
-                    hyperLink.Text = "Company Profile";
-                    hyperLink.NavigateUrl = "profile.aspx";
+                    hyperLink.Text = "Thông tin công ty";
+                    hyperLink.NavigateUrl = "Profile.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
                     literal.Text = " | ";
                     this.panelMenu.Controls.Add(literal);
                     hyperLink = new HyperLink();
-                    hyperLink.Text = "Company Logo";
-                    hyperLink.NavigateUrl = "logo.aspx";
+                    hyperLink.Text = "Logo công ty";
+                    hyperLink.NavigateUrl = "Logo.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
                     literal.Text = " | ";
                     this.panelMenu.Controls.Add(literal);
                     hyperLink = new HyperLink();
-                    hyperLink.Text = "Change Password";
-                    hyperLink.NavigateUrl = "changepassword.aspx";
+                    hyperLink.Text = "Đổi mật khẩu";
+                    hyperLink.NavigateUrl = "ChangePassword.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
                     literal.Text = " | ";
                     this.panelMenu.Controls.Add(literal);
                     hyperLink = new HyperLink();
-                    hyperLink.Text = "Logout";
-                    hyperLink.NavigateUrl = "logout.aspx";
+                    hyperLink.Text = "Đăng xuất";
+                    hyperLink.NavigateUrl = "Logout.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     TdMyAccount.BgColor = "#099999";
                     TdHome.BgColor = "#000099";

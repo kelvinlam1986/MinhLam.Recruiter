@@ -10,7 +10,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <title>::My Account</title>
+     <title>::Tài khoản của tôi</title>
     <link href="Css/newstyle.css" rel="stylesheet" />
     <link href="Css/style.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

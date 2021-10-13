@@ -41,8 +41,8 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
 
         private void NotLogin()
         {
-            lblHeader.Text = "New Registration";
-            this.Title = "::New Registration";
+            lblHeader.Text = "Đăng ký mởi";
+            this.Title = "::Đăng ký mởi";
             literalMessage.Visible = true;
             trTermofService.Visible = true;
             trAgree.Visible = true;
@@ -61,7 +61,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
 
         private void Logged()
         {
-            this.Title = "::Update Login Information";
+            this.Title = "::Cập nhật thông tin đăng nhập";
             literalMessage.Visible = false;
             trTermofService.Visible = false;
             trAgree.Visible = false;
