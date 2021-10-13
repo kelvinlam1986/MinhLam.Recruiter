@@ -11,5 +11,7 @@ namespace MinhLam.Recruiter.Application
         void RCResetHitViewed(RCResetHitViewCommand cmd);
         void RCUpdateAccount(RCUpdateAccountCommand cmd);
         void RCUpdateCompany(RCUpdateCompanyCommand cmd);
+        void RCUploadLogo(RCUploadLogoCommand cmd);
+        void RCChangePassword(RCChangePasswordCommand cmd);
     }
 }

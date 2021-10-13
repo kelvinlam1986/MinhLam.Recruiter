@@ -13,6 +13,13 @@ namespace MinhLam.Recruiter.Infrastructure.Domains
             this.settings = settings;
         }
 
+        public void SendChangePasswordSuccessfulRCAccount(string emailAddress)
+        {
+            var siteEmail = this.settings.SiteEmail;
+            string message = "Mật khẩu của bạn đã thay đổi thành công. <br> Cám ơn bạn đã sử dụng dịch vụ Timviecnhanh.com";
+            EmailHelper.SendEmail(siteEmail, emailAddress, "", "", "Thay đổi mật khẩu", message);
+        }
+
         public void SendNewRegisterSuccessfulRCAccount(string emailAddress)
         {
             var siteEmail = this.settings.SiteEmail;

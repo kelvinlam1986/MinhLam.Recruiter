@@ -2,7 +2,6 @@
 using MinhLam.Recruiter.Application;
 using MinhLam.Recruiter.Application.Commands;
 using MinhLam.Recruiter.Domain;
-using System;
 
 namespace MinhLam.Recruiter.Infrastructure.Applications
 {
@@ -13,24 +12,43 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
         private IRCAccountRepository accountRepository;
         private IGetData getData;
         private IUnitOfWork unitOfWork;
+        private ISendEmail sendEmail;
 
         public MembershipService(
             IHashedPassword hashedPassword,
             ICheckExisting checkExisting,
             IRCAccountRepository accountRepository,
             IGetData getData,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork,
+            ISendEmail sendEmail)
         {
             this.hashedPassword = hashedPassword;
             this.checkExisting = checkExisting;
             this.accountRepository = accountRepository;
             this.getData = getData;
             this.unitOfWork = unitOfWork;
+            this.sendEmail = sendEmail;
         }
 
         public RCAccount GetRCAccountByEmail(string email)
         {
             return this.getData.GetRCAccountByEmail(email);
+        }
+
+        public void RCChangePassword(RCChangePasswordCommand cmd)
+        {
+            var account = this.accountRepository.GetById(cmd.RecruiterId);
+            if (account == null)
+            {
+                throw new ApplicationServiceException(
+                    MembershipExceptionCodes.CannotFoundRCAccount,
+                    "Không thể tìm thấy tài khoản");
+            }
+           
+            account.ChangePassword(cmd.Email, cmd.OldPassword, cmd.NewPassword, hashedPassword, checkExisting);
+            this.accountRepository.Update(account);
+            this.unitOfWork.Commit();
+            this.sendEmail.SendChangePasswordSuccessfulRCAccount(cmd.Email);
         }
 
         public void RCLogin(RCLoginCommand cmd)
@@ -120,6 +138,21 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
                 cmd.OpenDate, 
                 checkExisting);
 
+            this.accountRepository.Update(account);
+            this.unitOfWork.Commit();
+        }
+
+        public void RCUploadLogo(RCUploadLogoCommand cmd)
+        {
+            var account = this.accountRepository.GetById(cmd.RecruiterId);
+            if (account == null)
+            {
+                throw new ApplicationServiceException(
+                    MembershipExceptionCodes.CannotFoundRCAccount,
+                    "Không thể tìm thấy tài khoản");
+            }
+
+            account.UploadLogo(checkExisting);
             this.accountRepository.Update(account);
             this.unitOfWork.Commit();
         }

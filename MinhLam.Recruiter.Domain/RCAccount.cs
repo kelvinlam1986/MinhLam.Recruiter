@@ -317,14 +317,14 @@ namespace MinhLam.Recruiter.Domain
             {
                 throw new DomainException(
                     DomainExceptionCode.RCAccountCanNotFound,
-                    $"Cannot found account with id {Id}");
+                    $"Không tìm thấy tài khoản với id {Id}");
             }
 
             if (Email != email)
             {
                 throw new DomainException(
                     DomainExceptionCode.RCAccountAlreadyExist,
-                    $"Cannot found account with email {email}");
+                    $"Không tìm thấy tài khoản với email {email}");
             }
 
             var oldHashedPassword = hashPasswordTool.Hash(oldPassword, email);
@@ -333,14 +333,14 @@ namespace MinhLam.Recruiter.Domain
             {
                 throw new DomainException(
                     DomainExceptionCode.OldPasswordNotMatched,
-                    $"Your old password not mached");
+                    $"Mật khẩu cũ không đúng.");
             }
 
             if (string.IsNullOrWhiteSpace(newPassword))
             {
                 throw new DomainException(
                     DomainExceptionCode.PasswordRequiredField,
-                    "Password is required field");
+                    "Bạn phải nhập mật khẩu mới");
             }
 
             var hashedPassword = hashPasswordTool.Hash(newPassword, email);

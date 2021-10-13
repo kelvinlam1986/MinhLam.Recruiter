@@ -157,6 +157,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Recruiters\Banners\onlinebanner.gif" />
+    <Content Include="Recruiters\ChangePassword.aspx" />
     <Content Include="Recruiters\Css\newstyle.css" />
     <Content Include="Recruiters\Css\style.css" />
     <Content Include="Recruiters\Icons\titlenote.gif" />
@@ -166,10 +167,12 @@
     <Content Include="Recruiters\Images\recruiter.gif" />
     <Content Include="Recruiters\Images\recruitvietnam.gif" />
     <Content Include="Recruiters\Login.aspx" />
+    <Content Include="Recruiters\Logo.aspx" />
     <Content Include="Recruiters\MyAccount.aspx" />
     <Content Include="Recruiters\Profile.aspx" />
     <Content Include="Recruiters\rcBanner.ascx" />
     <Content Include="Recruiters\rcBottom.ascx" />
+    <Content Include="Recruiters\rcLeft.ascx" />
     <Content Include="Recruiters\rcMenu.ascx" />
     <Content Include="Recruiters\rcRight.ascx" />
     <Content Include="Recruiters\rcTop.ascx" />
@@ -238,12 +241,26 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recruiters\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recruiters\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recruiters\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recruiters\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recruiters\Logo.aspx.cs">
+      <DependentUpon>Logo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recruiters\Logo.aspx.designer.cs">
+      <DependentUpon>Logo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recruiters\MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
@@ -272,6 +289,13 @@
     </Compile>
     <Compile Include="Recruiters\rcBottom.ascx.designer.cs">
       <DependentUpon>rcBottom.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Recruiters\rcLeft.ascx.cs">
+      <DependentUpon>rcLeft.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recruiters\rcLeft.ascx.designer.cs">
+      <DependentUpon>rcLeft.ascx</DependentUpon>
     </Compile>
     <Compile Include="Recruiters\rcMenu.ascx.cs">
       <DependentUpon>rcMenu.ascx</DependentUpon>
