@@ -19,7 +19,8 @@ namespace MinhLam.Recruiter.Infrastructure
         public DbSet<ExperienceLevel> ExperienceLevels { get; set; }
         public DbSet<WorkingType> WorkingTypes { get; set; }
         public DbSet<RCFolder> RCFolders { get; set; }
-
+        public DbSet<Template> Templates { get; set; }
+        public DbSet<RCJobPosting> RCJobPostings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -31,6 +32,7 @@ namespace MinhLam.Recruiter.Infrastructure
             modelBuilder.Configurations.Add(new ExperienceLevelConfiguration());
             modelBuilder.Configurations.Add(new WorkingTypeConfiguration());
             modelBuilder.Configurations.Add(new RCFolderConfiguration());
+            modelBuilder.Configurations.Add(new TemplateConfiguration());
         }
     }
 }

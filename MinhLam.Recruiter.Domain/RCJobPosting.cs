@@ -74,6 +74,96 @@ namespace MinhLam.Recruiter.Domain
             string contactPerson,
             string contactTel)
         {
+            if (string.IsNullOrWhiteSpace(jobTitle))
+            {
+                throw new DomainException(DomainExceptionCode.JobTitleRequiredField,
+                    "Bạn phải nhập tiêu đề tin công việc");
+            }
+
+            if (string.IsNullOrWhiteSpace(jobSummary))
+            {
+                throw new DomainException(DomainExceptionCode.JobSummaryRequiredField,
+                    "Bạn phải nhập mô tả công việc");
+            }
+
+            if (jobCategoryId == null || jobCategoryId == Guid.Empty)
+            {
+                throw new DomainException(DomainExceptionCode.JobCategoryIdRequiredField,
+                    "Bạn phải chọn ít nhất một thể loại công việc");
+            }
+
+            if (jobIndustryId == null || jobIndustryId == Guid.Empty)
+            {
+                throw new DomainException(DomainExceptionCode.JobIndustryIdRequiredField,
+                   "Bạn phải chọn ít nhất một ngành công nghiệp");
+            }
+
+            if (certificateId == null || certificateId == Guid.Empty)
+            {
+                throw new DomainException(DomainExceptionCode.CertificateIdRequiredFiled,
+                   "Bạn phải chọn ít nhất một chứng chỉ");
+            }
+
+            if (experienceLevelId == null || experienceLevelId == Guid.Empty)
+            {
+                throw new DomainException(DomainExceptionCode.ExperienceLevelIdRequiredFiekd,
+                    "Bạn phải chọn ít nhất một mức kinh nghiệm");
+            }
+
+            if (string.IsNullOrWhiteSpace(yearExperience))
+            {
+                yearExperience = "0";
+            }
+
+            int numberOfYearExperience = 0;
+            if (int.TryParse(yearExperience, out numberOfYearExperience) == false)
+            {
+                throw new DomainException(DomainExceptionCode.YearExperienceMustNumber,
+                    "Số năm kinh nghiệp phải là số");
+            }
+
+            if (numberOfYearExperience > 20)
+            {
+                throw new DomainException(DomainExceptionCode.YearExperienceMustLessThan20,
+                   "Số năm kinh nghiệp phải nhỏ hơn 20");
+            }
+
+            if (workingTypeId == null || workingTypeId == Guid.Empty)
+            {
+                throw new DomainException(DomainExceptionCode.WorkingTypeIdRequiredField,
+                    "Bạn phải chọn một loại công việc");
+            }
+
+            if (requiredNumber < 1 && requiredNumber > 20)
+            {
+                throw new DomainException(DomainExceptionCode.RequiredNumberOutOfRange,
+                    "Số lượng tuyển phải trong 1 đến 20");
+            }
+
+            if (string.IsNullOrWhiteSpace(currency))
+            {
+                throw new DomainException(DomainExceptionCode.CurrencyRequiredField,
+                    "Bạn phải chọn một loại tiền tệ");
+            }
+
+            if (provinceId == null || provinceId == Guid.Empty)
+            {
+                throw new DomainException(DomainExceptionCode.ProvinceIdRequiredField,
+                    "Bạn phải chọn một tỉnh thành");
+            }
+
+            if (folderId == null || folderId == Guid.Empty)
+            {
+                throw new DomainException(DomainExceptionCode.FolderIdRequiredField,
+                    "Bạn phải chọn một thư mục");
+            }
+
+            if (templateId == null || templateId == Guid.Empty)
+            {
+                throw new DomainException(DomainExceptionCode.TemplateIdRequiredField,
+                  "Bạn phải chọn một template");
+            }
+
             var id = Guid.NewGuid();
             int viewedNo = 0;
             var postedDate = DateTime.Now;

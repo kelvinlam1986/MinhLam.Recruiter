@@ -172,6 +172,20 @@ namespace MinhLam.Recruiter.Infrastructure.Sessions
             }
         }
 
+        public Guid JobId
+        {
+            get
+            {
+                string jobId = GetQueryStringValue("JobId");
+                if (string.IsNullOrEmpty(jobId))
+                {
+                    return Guid.Empty;
+                }
+
+                return Guid.Parse(jobId);
+            }
+        }
+
 
         private void ClearSession()
         {

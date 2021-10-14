@@ -1,4 +1,5 @@
 ﻿using MinhLam.Recruiter.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,6 +14,16 @@ namespace MinhLam.Recruiter.Infrastructure.Domains
             this.context = context;
         }
 
+        public List<ExperienceLevel> GetExperienceLevels()
+        {
+            return this.context.ExperienceLevels.ToList();
+        }
+
+        public List<RCFolder> GetFoldersOfRecruiter(Guid recruiterId)
+        {
+            return this.context.RCFolders.Where(x => x.RecruiterId == recruiterId).ToList();
+        }
+
         public List<JobCategory> GetJobCategories()
         {
             return this.context.JobCategories.ToList();
@@ -23,6 +34,11 @@ namespace MinhLam.Recruiter.Infrastructure.Domains
             return this.context.JobIndustries.ToList();
         }
 
+        public List<JSCertificate> GetJSCertificates()
+        {
+            return this.context.JSCertificates.ToList();
+        }
+
         public List<Province> GetProvinces()
         {
             return this.context.Provinces.ToList();
@@ -31,6 +47,21 @@ namespace MinhLam.Recruiter.Infrastructure.Domains
         public RCAccount GetRCAccountByEmail(string email)
         {
             return this.context.RCAccounts.FirstOrDefault(x => x.Email == email);
+        }
+
+        public RCAccount GetRCAccountById(Guid id)
+        {
+            return this.context.RCAccounts.FirstOrDefault(x => x.Id == id);
+        }
+
+        public List<Template> GetTemplates()
+        {
+            return this.context.Templates.ToList();
+        }
+
+        public List<WorkingType> GetWorkingTypes()
+        {
+            return this.context.WorkingTypes.ToList();
         }
     }
 }

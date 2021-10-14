@@ -5,6 +5,11 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
 {
     public class Redirector : IRedirector
     {
+        public void GoToJobManager()
+        {
+            Redirect("JobManager.aspx");
+        }
+
         public void GoToLogin()
         {
             Redirect("Login.aspx");

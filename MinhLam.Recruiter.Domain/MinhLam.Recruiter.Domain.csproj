@@ -52,6 +52,7 @@
     <Compile Include="IJobIndustryRepository.cs" />
     <Compile Include="IRCAccountRepository.cs" />
     <Compile Include="IRCFolderRepository.cs" />
+    <Compile Include="IRCJobPostingRepository.cs" />
     <Compile Include="IRCSavedSearchRepository.cs" />
     <Compile Include="ISendEmail.cs" />
     <Compile Include="JobCategory.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="JSCertificate.cs" />
     <Compile Include="Province.cs" />
     <Compile Include="RCSavedSearch.cs" />
+    <Compile Include="Template.cs" />
     <Compile Include="UpdatetAccountAvailablePostingViewingHandler.cs" />
     <Compile Include="JobPostingRemovedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

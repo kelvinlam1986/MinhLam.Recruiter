@@ -78,7 +78,9 @@ namespace MinhLam.Recruiter.WebForms.App_Start
             kernel.Bind<IUserSession>().To<UserSession>();
             kernel.Bind<IUserCookie>().To<UserCookie>();
             kernel.Bind<IMembershipService>().To<MembershipService>();
+            kernel.Bind<IJobPostingService>().To<JobPostingService>();
             kernel.Bind<IRCAccountRepository>().To<RCAccountRepository>();
+            kernel.Bind<IRCJobPostingRepository>().To<RCJobPostingRepository>();
             kernel.Bind<ICheckExisting>().To<CheckExisting>();
             kernel.Bind<IGetData>().To<GetData>();
             kernel.Bind<IViewRCAccountQuery>().To<ViewRCAccountQuery>();

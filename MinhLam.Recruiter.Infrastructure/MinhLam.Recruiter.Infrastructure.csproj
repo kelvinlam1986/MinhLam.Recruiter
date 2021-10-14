@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\JobPostingService.cs" />
     <Compile Include="Applications\MembershipService.cs" />
     <Compile Include="Applications\Query\ViewRCAccountQuery.cs" />
     <Compile Include="Applications\Redirector.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="DbConfiguration\ProvinceConfiguration.cs" />
     <Compile Include="DbConfiguration\RCAccountConfiguration.cs" />
     <Compile Include="DbConfiguration\RCFolderConfiguration.cs" />
+    <Compile Include="DbConfiguration\TemplateConfiguration.cs" />
     <Compile Include="DbConfiguration\WorkingTypeConfiguration.cs" />
     <Compile Include="Domains\CheckExisting.cs" />
     <Compile Include="Domains\GetData.cs" />
@@ -102,9 +104,14 @@
     <Compile Include="Migrations\202110140237460_AddRCFolderTable.designer.cs">
       <DependentUpon>202110140237460_AddRCFolderTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110140617375_AddTemplateTable.cs" />
+    <Compile Include="Migrations\202110140617375_AddTemplateTable.designer.cs">
+      <DependentUpon>202110140617375_AddTemplateTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RCAccountRepository.cs" />
+    <Compile Include="Repositories\RCJobPostingRepository.cs" />
     <Compile Include="RepositoryBase.cs" />
     <Compile Include="Sessions\IUserCookie.cs" />
     <Compile Include="Sessions\IUserSession.cs" />
@@ -157,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110140237460_AddRCFolderTable.resx">
       <DependentUpon>202110140237460_AddRCFolderTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110140617375_AddTemplateTable.resx">
+      <DependentUpon>202110140617375_AddTemplateTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

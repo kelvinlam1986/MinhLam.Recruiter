@@ -53,5 +53,9 @@ namespace MinhLam.Recruiter.Domain
             this.FolderDescription = folderDescription;
             this.FolderManager = folderManager;
         }
+
+        public RCFolder()
+        {
+        }
     }
 }

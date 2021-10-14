@@ -72,7 +72,7 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="width: 79px; text-align: left">Job No.</td>
+                                                                    <td style="width: 79px; text-align: left">Mã số</td>
                                                                     <td style="width: 85px">
                                                                         <asp:TextBox ID="txtNo" runat="server"></asp:TextBox></td>
                                                                     <td style="width: 104px">Ngày đóng</td>
@@ -270,7 +270,6 @@
                                                                     <td style="width: 104px">Template</td>
                                                                     <td style="width: 147px">
                                                                         <asp:DropDownList ID="ddlTemplate" runat="server" Width="154px">
-                                                                            <asp:ListItem Value="0">Chung</asp:ListItem>
                                                                         </asp:DropDownList></td>
                                                                 </tr>
                                                                 <tr>
@@ -282,7 +281,7 @@
                                                                 <tr>
                                                                     <td style="width: 79px; text-align: left"></td>
                                                                     <td colspan="2" nowrap="noWrap">
-                                                                        <asp:Button ID="btnSave" runat="server" Text="Lưu" Width="52px" />
+                                                                        <asp:Button ID="btnSave" runat="server" Text="Lưu" Width="52px" OnClick="btnSave_Click" />
                                                                         <asp:Button ID="btnActivate" runat="server" Text="Kích hoạt" Width="92px" />
                                                                         <asp:Button ID="btnPreView" runat="server" Text="Xem trước" Width="92px" /></td>
                                                                     <td style="width: 147px"></td>

@@ -5,5 +5,6 @@
         void GoToRCProfile();
         void GoToRCMyAccount();
         void GoToLogin();
+        void GoToJobManager();
     }
 }

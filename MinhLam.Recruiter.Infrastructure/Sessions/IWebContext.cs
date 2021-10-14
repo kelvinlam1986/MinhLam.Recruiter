@@ -13,5 +13,6 @@ namespace MinhLam.Recruiter.Infrastructure.Sessions
         string RCRememberEmail { get; set; }
         int RCLoginAttempts { get; set; }
         string RCTime { get; set; }
+        Guid JobId { get; }
     }
 }
