@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DecreaseAvaiablePostingOrViewingEnum.cs" />
     <Compile Include="DomainExceptionCode.cs" />
+    <Compile Include="ExperienceLevel.cs" />
     <Compile Include="ICheckExisting.cs" />
     <Compile Include="IGetData.cs" />
     <Compile Include="IHashedPassword.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="JobCategory.cs" />
     <Compile Include="JobIndustry.cs" />
     <Compile Include="JobPostingAddedEvent.cs" />
+    <Compile Include="JSCertificate.cs" />
     <Compile Include="Province.cs" />
     <Compile Include="RCSavedSearch.cs" />
     <Compile Include="UpdatetAccountAvailablePostingViewingHandler.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="SalesPackageDetail.cs" />
     <Compile Include="UpdateJobNumberAfterInsertJobPostingHandler.cs" />
     <Compile Include="UpdateJobNumberAfterRemoveJobPostingHandler.cs" />
+    <Compile Include="WorkingType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MinhLam.Framework\MinhLam.Framework.csproj">

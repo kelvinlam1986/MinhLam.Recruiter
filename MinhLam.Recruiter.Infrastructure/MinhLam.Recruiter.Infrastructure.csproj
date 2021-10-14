@@ -58,8 +58,14 @@
     <Compile Include="Applications\Redirector.cs" />
     <Compile Include="Configuration\IApplicationSettings.cs" />
     <Compile Include="Configuration\WebConfigApplicationSettings.cs" />
+    <Compile Include="DbConfiguration\ExperienceLevelConfiguration.cs" />
+    <Compile Include="DbConfiguration\JobCategoryConfiguration.cs" />
+    <Compile Include="DbConfiguration\JobIndustryConfiguration.cs" />
+    <Compile Include="DbConfiguration\JSCertificateConfiguration.cs" />
     <Compile Include="DbConfiguration\ProvinceConfiguration.cs" />
     <Compile Include="DbConfiguration\RCAccountConfiguration.cs" />
+    <Compile Include="DbConfiguration\RCFolderConfiguration.cs" />
+    <Compile Include="DbConfiguration\WorkingTypeConfiguration.cs" />
     <Compile Include="Domains\CheckExisting.cs" />
     <Compile Include="Domains\GetData.cs" />
     <Compile Include="Domains\SendEmail.cs" />
@@ -71,6 +77,30 @@
     <Compile Include="Migrations\202109161213083_UpdateLengthForFieldPassword.cs" />
     <Compile Include="Migrations\202109161213083_UpdateLengthForFieldPassword.designer.cs">
       <DependentUpon>202109161213083_UpdateLengthForFieldPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110130800557_AddJobCategoryTable.cs" />
+    <Compile Include="Migrations\202110130800557_AddJobCategoryTable.designer.cs">
+      <DependentUpon>202110130800557_AddJobCategoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110130931089_AddJobIndustrryTable.cs" />
+    <Compile Include="Migrations\202110130931089_AddJobIndustrryTable.designer.cs">
+      <DependentUpon>202110130931089_AddJobIndustrryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110130937173_AddJSCertificatesTable.cs" />
+    <Compile Include="Migrations\202110130937173_AddJSCertificatesTable.designer.cs">
+      <DependentUpon>202110130937173_AddJSCertificatesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110130942166_AddExperienceLevelTable.cs" />
+    <Compile Include="Migrations\202110130942166_AddExperienceLevelTable.designer.cs">
+      <DependentUpon>202110130942166_AddExperienceLevelTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110130946336_AddWorkingTypeTable.cs" />
+    <Compile Include="Migrations\202110130946336_AddWorkingTypeTable.designer.cs">
+      <DependentUpon>202110130946336_AddWorkingTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110140237460_AddRCFolderTable.cs" />
+    <Compile Include="Migrations\202110140237460_AddRCFolderTable.designer.cs">
+      <DependentUpon>202110140237460_AddRCFolderTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,6 +139,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109161213083_UpdateLengthForFieldPassword.resx">
       <DependentUpon>202109161213083_UpdateLengthForFieldPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110130800557_AddJobCategoryTable.resx">
+      <DependentUpon>202110130800557_AddJobCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110130931089_AddJobIndustrryTable.resx">
+      <DependentUpon>202110130931089_AddJobIndustrryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110130937173_AddJSCertificatesTable.resx">
+      <DependentUpon>202110130937173_AddJSCertificatesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110130942166_AddExperienceLevelTable.resx">
+      <DependentUpon>202110130942166_AddExperienceLevelTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110130946336_AddWorkingTypeTable.resx">
+      <DependentUpon>202110130946336_AddWorkingTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110140237460_AddRCFolderTable.resx">
+      <DependentUpon>202110140237460_AddRCFolderTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

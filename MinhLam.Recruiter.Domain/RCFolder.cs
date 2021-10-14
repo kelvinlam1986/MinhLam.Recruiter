@@ -1,11 +1,14 @@
 ﻿using MinhLam.Framework;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MinhLam.Recruiter.Domain
 {
     public class RCFolder : AggregateRoot
     {
         public Guid RecruiterId { get; set; }
+        [ForeignKey("RecruiterId")]
+        public RCAccount Recruiter { get; set; }
         public string FolderName { get; set; }
         public string  FolderDescription { get; set; }
         public string FolderManager { get; set; }
@@ -37,7 +40,7 @@ namespace MinhLam.Recruiter.Domain
             return null;
         }
 
-        internal RCFolder(
+        protected RCFolder(
             Guid id, 
             Guid recruiterId, 
             string folderName, 

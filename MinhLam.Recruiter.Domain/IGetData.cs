@@ -6,5 +6,7 @@ namespace MinhLam.Recruiter.Domain
     {
         RCAccount GetRCAccountByEmail(string email);
         List<Province> GetProvinces();
+        List<JobCategory> GetJobCategories();
+        List<JobIndustry> GetJobIndustries();
     }
 }

@@ -94,16 +94,16 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                     hyperLink.NavigateUrl = "logout.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     break;
-                case "::Job Manager":
+                case "::Quản lý Job":
                 case "::Job Purchase":
-                case "::Post a Job":
+                case "::Đăng tin":
                 case "::Resume Details":
                 case "::Job Details":
                 case "::Job Expired":
                 case "::Job Posting":
                     hyperLink = new HyperLink();
-                    hyperLink.Text = "Post a Job";
-                    hyperLink.NavigateUrl = "postjob.aspx";
+                    hyperLink.Text = "Đăng tin";
+                    hyperLink.NavigateUrl = "PostJob.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
                     literal.Text = " | ";

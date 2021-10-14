@@ -13,6 +13,16 @@ namespace MinhLam.Recruiter.Infrastructure.Domains
             this.context = context;
         }
 
+        public List<JobCategory> GetJobCategories()
+        {
+            return this.context.JobCategories.ToList();
+        }
+
+        public List<JobIndustry> GetJobIndustries()
+        {
+            return this.context.JobIndustries.ToList();
+        }
+
         public List<Province> GetProvinces()
         {
             return this.context.Provinces.ToList();
