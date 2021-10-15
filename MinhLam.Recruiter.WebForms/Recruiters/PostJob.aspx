@@ -58,6 +58,12 @@
                                                             phải mua một gói tin mới. 
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td colspan="2" style="width: 100%; text-align: center;">
+                                                        <hr size="1" />
+                                                         <asp:Literal ID="literalError" runat="server"></asp:Literal></td>
+                                                    </tr>
+                                                    
                                                     <tr valign="top">
                                                         <td style="width: 100%; text-align: left;">
                                                             <table style="width: 100%">
@@ -154,7 +160,7 @@
                                                                 <tr>
                                                                     <td style="width: 79px; text-align: left">Người liên hệ 
                                                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
-                                                                            ControlToValidate="txtContactPerson" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                                             ControlToValidate="txtContactPerson" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                                     </td>
                                                                     <td style="width: 85px">
                                                                         <asp:TextBox ID="txtContactPerson" runat="server" MaxLength="50"></asp:TextBox></td>
@@ -298,10 +304,6 @@
                                                             </table>
                                                         </td>
                                                     </tr>
-                                                    <tr valign="top">
-                                                        <td style="width: 100%; text-align: center;">
-                                                            <asp:Literal ID="literalError" runat="server"></asp:Literal></td>
-                                                    </tr>
                                                 </table>
                                             </td>
                                         </tr>
@@ -318,7 +320,7 @@
                 </tr>
                 <tr>
                     <td align="center" colspan="4">
-                        <uc1:rcBottom id="RcvBottom1" runat="server" />
+                        <uc1:rcBottom ID="RcvBottom1" runat="server" />
                     </td>
                 </tr>
             </table>

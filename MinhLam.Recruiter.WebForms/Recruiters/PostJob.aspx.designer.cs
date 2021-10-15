@@ -78,6 +78,15 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
         protected global::System.Web.UI.WebControls.Literal literalID;
 
         /// <summary>
+        /// literalError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal literalError;
+
+        /// <summary>
         /// postAndUpdateDate control.
         /// </summary>
         /// <remarks>
@@ -472,15 +481,6 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPreView;
-
-        /// <summary>
-        /// literalError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal literalError;
 
         /// <summary>
         /// rcvRight1 control.
