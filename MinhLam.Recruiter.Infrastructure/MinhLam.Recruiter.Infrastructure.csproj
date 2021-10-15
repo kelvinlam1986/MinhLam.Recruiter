@@ -66,6 +66,7 @@
     <Compile Include="DbConfiguration\ProvinceConfiguration.cs" />
     <Compile Include="DbConfiguration\RCAccountConfiguration.cs" />
     <Compile Include="DbConfiguration\RCFolderConfiguration.cs" />
+    <Compile Include="DbConfiguration\RCJobPostingConfiguration.cs" />
     <Compile Include="DbConfiguration\TemplateConfiguration.cs" />
     <Compile Include="DbConfiguration\WorkingTypeConfiguration.cs" />
     <Compile Include="Domains\CheckExisting.cs" />
@@ -107,6 +108,10 @@
     <Compile Include="Migrations\202110140617375_AddTemplateTable.cs" />
     <Compile Include="Migrations\202110140617375_AddTemplateTable.designer.cs">
       <DependentUpon>202110140617375_AddTemplateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110150443401_AddRCJobPostingTable.cs" />
+    <Compile Include="Migrations\202110150443401_AddRCJobPostingTable.designer.cs">
+      <DependentUpon>202110150443401_AddRCJobPostingTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110140617375_AddTemplateTable.resx">
       <DependentUpon>202110140617375_AddTemplateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110150443401_AddRCJobPostingTable.resx">
+      <DependentUpon>202110150443401_AddRCJobPostingTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

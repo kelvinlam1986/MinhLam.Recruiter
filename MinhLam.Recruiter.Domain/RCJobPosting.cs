@@ -1,18 +1,25 @@
 ﻿using MinhLam.Framework;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MinhLam.Recruiter.Domain
 {
     public class RCJobPosting : AggregateRoot
     {
         public Guid RecruiterId { get; protected set; }
+        [ForeignKey("RecruiterId")]
+        public RCAccount Recruiter { get; set; }
         public string JobTitle { get; protected set; }
         public string JobNo { get; protected set; }
         public int RequiredNumber { get; protected set; }
         public string JobSummary { get; protected set; }
         public Guid WorkingTypeId { get; protected set; }
+        [ForeignKey("WorkingTypeId")]
+        public WorkingType WorkingType { get; set; }
         public Guid ExperienceLevelId { get; protected set; }
-        public string YearExperience { get; protected set; }
+        [ForeignKey("ExperienceLevelId")]
+        public ExperienceLevel ExperienceLevel { get; set; }
+        public int YearExperience { get; protected set; }
         public string RangeOfAge { get; protected set; }
         public string RecruitmentType { get; protected set; }
         public int SalaryFrom { get; protected set; }
@@ -25,12 +32,24 @@ namespace MinhLam.Recruiter.Domain
         public string AdvName { get; protected set; }
         public string JobSkill { get; protected set; }
         public Guid JobIndustryId { get; protected set; }
+        [ForeignKey("JobIndustryId")]
+        public JobIndustry JobIndustry { get; set; }
         public Guid JobCategoryId { get; protected set; }
+        [ForeignKey("JobCategoryId")]
+        public JobCategory JobCategory { get; set; }
         public Guid CertificateId { get; protected set; }
+        [ForeignKey("CertificateId")]
+        public JSCertificate Certificate { get; set; }
         public string WorkLocation { get; protected set; }
         public Guid ProvinceId { get; protected set; }
+        [ForeignKey("ProvinceId")]
+        public Province Province { get; set; }
         public Guid TemplateId { get; protected set; }
+        [ForeignKey("TemplateId")]
+        public Template Template { get; set; }
         public Guid FolderId { get; protected set; }
+        [ForeignKey("FolderId")]
+        public RCFolder RCFolder { get; set; }
         public bool EnableApplyOnline { get; protected set; }
         public string OnlyApplyUrl { get; protected set; }
         public string ContactEmail { get; protected set; }
@@ -49,7 +68,7 @@ namespace MinhLam.Recruiter.Domain
             string jobSummary,
             Guid workingTypeId,
             Guid experienceLevelId,
-            string yearExperience,
+            int yearExperience,
             string rangeOfAge,
             string recruitmentType,
             int salaryFrom,
@@ -86,6 +105,24 @@ namespace MinhLam.Recruiter.Domain
                     "Bạn phải nhập mô tả công việc");
             }
 
+            if (string.IsNullOrWhiteSpace(contactEmail))
+            {
+                throw new DomainException(DomainExceptionCode.ContactEmailRequiredField,
+                    "Bạn phải nhập địa chỉ email liên hệ");
+            }
+
+            if (string.IsNullOrWhiteSpace(contactPerson))
+            {
+                throw new DomainException(DomainExceptionCode.ContactPersonRequiredField,
+                    "Bạn phải nhập người liên hệ");
+            }
+
+            if (string.IsNullOrWhiteSpace(contactTel))
+            {
+                throw new DomainException(DomainExceptionCode.ContactTelRequiredField,
+                    "Bạn phải nhập điện thoại liên hệ");
+            }
+
             if (jobCategoryId == null || jobCategoryId == Guid.Empty)
             {
                 throw new DomainException(DomainExceptionCode.JobCategoryIdRequiredField,
@@ -110,19 +147,7 @@ namespace MinhLam.Recruiter.Domain
                     "Bạn phải chọn ít nhất một mức kinh nghiệm");
             }
 
-            if (string.IsNullOrWhiteSpace(yearExperience))
-            {
-                yearExperience = "0";
-            }
-
-            int numberOfYearExperience = 0;
-            if (int.TryParse(yearExperience, out numberOfYearExperience) == false)
-            {
-                throw new DomainException(DomainExceptionCode.YearExperienceMustNumber,
-                    "Số năm kinh nghiệp phải là số");
-            }
-
-            if (numberOfYearExperience > 20)
+            if (yearExperience > 20)
             {
                 throw new DomainException(DomainExceptionCode.YearExperienceMustLessThan20,
                    "Số năm kinh nghiệp phải nhỏ hơn 20");
@@ -144,18 +169,6 @@ namespace MinhLam.Recruiter.Domain
             {
                 throw new DomainException(DomainExceptionCode.CurrencyRequiredField,
                     "Bạn phải chọn một loại tiền tệ");
-            }
-
-            if (provinceId == null || provinceId == Guid.Empty)
-            {
-                throw new DomainException(DomainExceptionCode.ProvinceIdRequiredField,
-                    "Bạn phải chọn một tỉnh thành");
-            }
-
-            if (folderId == null || folderId == Guid.Empty)
-            {
-                throw new DomainException(DomainExceptionCode.FolderIdRequiredField,
-                    "Bạn phải chọn một thư mục");
             }
 
             if (templateId == null || templateId == Guid.Empty)
@@ -226,7 +239,7 @@ namespace MinhLam.Recruiter.Domain
             string jobSummary,
             Guid workingTypeId,
             Guid experienceLevelId,
-            string yearExperience,
+            int yearExperience,
             string rangeOfAge,
             string recruitmentType,
             int salaryFrom,
@@ -302,7 +315,7 @@ namespace MinhLam.Recruiter.Domain
             string jobSummary,
             Guid workingTypeId,
             Guid experienceLevelId,
-            string yearExperience,
+            int yearExperience,
             string rangeOfAge,
             string recruitmentType,
             int salaryFrom,

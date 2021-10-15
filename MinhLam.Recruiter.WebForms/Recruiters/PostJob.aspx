@@ -104,7 +104,7 @@
                                                                     <td style="width: 85px">
                                                                         <asp:DropDownList ID="ddlCategory" runat="server" Width="154px">
                                                                         </asp:DropDownList></td>
-                                                                    <td style="width: 104px">Nghành công nghiệp</td>
+                                                                    <td style="width: 104px">Nghành nghề</td>
                                                                     <td style="width: 147px">
                                                                         <asp:DropDownList ID="ddlIndustry" runat="server" Width="154px">
                                                                         </asp:DropDownList></td>
@@ -122,11 +122,11 @@
                                                                 <tr>
                                                                     <td style="width: 79px; text-align: left">Năm kinh nghiệp</td>
                                                                     <td nowrap="noWrap">Ít nhất
-                                                                        <asp:TextBox ID="txtYearExperience" runat="server" MaxLength="50" Width="21px"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtYearExperience" TextMode="Number" runat="server" MaxLength="50" Width="21px">1</asp:TextBox>
                                                                         &nbsp;năm
                                                                         <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtYearExperience"
                                                                             ErrorMessage="1-20" MaximumValue="20" MinimumValue="1" Type="Integer"></asp:RangeValidator></td>
-                                                                    <td style="width: 104px">Loại công việc</td>
+                                                                    <td style="width: 104px">Hình thức làm việc</td>
                                                                     <td style="width: 147px">
                                                                         <asp:DropDownList ID="ddlWorkingType" runat="server" Width="154px">
                                                                         </asp:DropDownList></td>
@@ -137,16 +137,25 @@
                                                                     <td style="width: 104px; height: 16px"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="width: 79px; text-align: left; height: 16px;">Email liên hệ</td>
+                                                                    <td style="width: 79px; text-align: left; height: 16px;">Email liên hệ 
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
+                                                                            ControlToValidate="txtContactEmail" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                                    </td>
                                                                     <td style="width: 85px; height: 16px;">
                                                                         <asp:TextBox ID="txtContactEmail" runat="server" MaxLength="50"></asp:TextBox></td>
-                                                                    <td style="width: 104px; height: 16px">Điện thoại liên hệ</td>
+                                                                    <td style="width: 104px; height: 16px">Điện thoại liên hệ 
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                                                                            ControlToValidate="txtContactTel" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                                    </td>
                                                                     <td style="width: 147px; height: 16px">
                                                                         <asp:TextBox ID="txtContactTel" runat="server" MaxLength="10"></asp:TextBox>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="width: 79px; text-align: left">Người liên hệ</td>
+                                                                    <td style="width: 79px; text-align: left">Người liên hệ 
+                                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
+                                                                            ControlToValidate="txtContactPerson" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                                    </td>
                                                                     <td style="width: 85px">
                                                                         <asp:TextBox ID="txtContactPerson" runat="server" MaxLength="50"></asp:TextBox></td>
                                                                     <td style="width: 104px"></td>
@@ -159,7 +168,7 @@
                                                                     <td style="width: 147px"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="width: 79px; text-align: left; height: 16px;">Số yêu cầu</td>
+                                                                    <td style="width: 79px; text-align: left; height: 16px;">Số lượng cần tuyển</td>
                                                                     <td style="width: 85px; height: 16px;">
                                                                         <asp:TextBox ID="txtNumber" runat="server" MaxLength="3">1</asp:TextBox>
                                                                         <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="txtNumber"
@@ -169,7 +178,7 @@
                                                                         <asp:TextBox ID="txtAge" runat="server" MaxLength="50"></asp:TextBox></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="width: 79px; text-align: left">Kiểu tuyển dụng</td>
+                                                                    <td style="width: 79px; text-align: left">Yêu cầu Nam/Nữ </td>
                                                                     <td style="width: 85px">
                                                                         <asp:TextBox ID="txtRecruitment" runat="server" MaxLength="50"></asp:TextBox></td>
                                                                     <td colspan="2">
@@ -186,7 +195,7 @@
                                                                 <tr>
                                                                     <td style="width: 79px; text-align: left">Lương từ</td>
                                                                     <td style="width: 85px">
-                                                                        <asp:TextBox ID="txtSalaryFrom" runat="server" MaxLength="10"></asp:TextBox></td>
+                                                                        <asp:TextBox ID="txtSalaryFrom" runat="server" TextMode="Number" MaxLength="10">0</asp:TextBox></td>
                                                                     <td style="width: 104px">
                                                                         <asp:DropDownList ID="ddlCurrency" runat="server" Width="57px">
                                                                             <asp:ListItem>USD</asp:ListItem>
@@ -199,7 +208,7 @@
                                                                 <tr>
                                                                     <td style="width: 79px; text-align: left">Đến</td>
                                                                     <td style="width: 85px" nowrap="noWrap">
-                                                                        <asp:TextBox ID="txtSalaryTo" runat="server" MaxLength="10"></asp:TextBox></td>
+                                                                        <asp:TextBox ID="txtSalaryTo" runat="server" TextMode="Number" MaxLength="10">0</asp:TextBox></td>
                                                                     <td colspan="2">
                                                                         <asp:CheckBox
                                                                             ID="chkShowSalary" runat="server"
@@ -217,7 +226,7 @@
                                                                     <td style="width: 85px">
                                                                         <asp:DropDownList ID="ddlProvince" runat="server" Width="154px">
                                                                         </asp:DropDownList></td>
-                                                                    <td style="width: 104px">Vị trí làm việc</td>
+                                                                    <td style="width: 104px">Nơi làm việc</td>
                                                                     <td style="width: 147px">
                                                                         <asp:TextBox ID="txtLocation" runat="server"></asp:TextBox></td>
                                                                 </tr>
@@ -228,14 +237,14 @@
                                                                     <td style="width: 147px"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="width: 79px; text-align: left">Những kỷ năng</td>
+                                                                    <td style="width: 79px; text-align: left">Những kỹ năng</td>
                                                                     <td colspan="3">
                                                                         <asp:TextBox ID="txtSkills" runat="server" Height="71px"
                                                                             TextMode="MultiLine" Width="443px"></asp:TextBox>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="width: 79px; text-align: left">Tên quảng cáo</td>
+                                                                    <td style="width: 79px; text-align: left">Thông tin giới thiệu về công ty</td>
                                                                     <td colspan="3">
                                                                         <asp:TextBox ID="txtAdv" runat="server" Height="71px"
                                                                             MaxLength="1000" TextMode="MultiLine"
@@ -248,11 +257,11 @@
                                                                     <td style="width: 147px"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="width: 79px; text-align: left">Thực hiện Online</td>
+                                                                    <td style="width: 79px; text-align: left">Có thệ nộp CV online tại</td>
                                                                     <td style="width: 85px">
                                                                         <asp:CheckBox ID="chkApplyOnline" runat="server" Width="105px" />&nbsp;
                                                                     </td>
-                                                                    <td style="width: 104px">Chỉ Apply URL</td>
+                                                                    <td style="width: 104px">đường dẫn website công ty</td>
                                                                     <td style="width: 147px">
                                                                         <asp:TextBox ID="txtURL" runat="server"></asp:TextBox></td>
                                                                 </tr>

@@ -128,7 +128,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                 ddlIndustry.SelectedValue = jobPosting.JobIndustryId.ToString();
                 ddlCertificate.SelectedValue = jobPosting.CertificateId.ToString();
                 ddlLevel.SelectedValue = jobPosting.ExperienceLevelId.ToString();
-                txtYearExperience.Text = jobPosting.YearExperience;
+                txtYearExperience.Text = jobPosting.YearExperience.ToString();
                 ddlWorkingType.SelectedValue = jobPosting.WorkingTypeId.ToString();
                 txtContactEmail.Text = jobPosting.ContactEmail;
                 txtContactPerson.Text = jobPosting.ContactPerson;
@@ -261,7 +261,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                         txtSummary.Text,
                         Guid.Parse(ddlWorkingType.SelectedValue),
                         Guid.Parse(ddlLevel.SelectedValue),
-                        txtYearExperience.Text,
+                        Convert.ToInt32(txtYearExperience.Text),
                         txtAge.Text,
                         txtRecruitment.Text,
                         Convert.ToInt32(txtSalaryFrom.Text),
@@ -288,7 +288,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                         );
 
                     RCJobPostingService.AddNewJobPosting(addNewPostingJob);
-                    Redirector.GoToJobManager();
+                    Response.Redirect("JobManager.aspx", false);
                 }
                 
             }

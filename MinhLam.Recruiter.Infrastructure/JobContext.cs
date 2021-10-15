@@ -33,6 +33,7 @@ namespace MinhLam.Recruiter.Infrastructure
             modelBuilder.Configurations.Add(new WorkingTypeConfiguration());
             modelBuilder.Configurations.Add(new RCFolderConfiguration());
             modelBuilder.Configurations.Add(new TemplateConfiguration());
+            modelBuilder.Configurations.Add(new RCJobPostingConfiguration());
         }
     }
 }

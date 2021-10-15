@@ -12,7 +12,7 @@ namespace MinhLam.Recruiter.Application.Commands
            string jobSummary,
            Guid workingTypeId,
            Guid experienceLevelId,
-           string yearExperience,
+           int yearExperience,
            string rangeOfAge,
            string recruitmentType,
            int salaryFrom,
@@ -78,7 +78,7 @@ namespace MinhLam.Recruiter.Application.Commands
         public string JobSummary { get; set; }
         public Guid WorkingTypeId { get; set; }
         public Guid ExperienceLevelId { get; set; }
-        public string YearExperience { get; set; }
+        public int YearExperience { get; set; }
         public string RangeOfAge { get; set; }
         public string RecruitementType { get; set; }
         public int SalaryFrom { get; set; }
