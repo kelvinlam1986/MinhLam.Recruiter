@@ -1,4 +1,6 @@
-﻿using MinhLam.Recruiter.Application;
+﻿using MinhLam.Framework;
+using MinhLam.Recruiter.Application;
+using MinhLam.Recruiter.Application.Commands;
 using MinhLam.Recruiter.Application.Query;
 using MinhLam.Recruiter.Application.Query.ViewModel;
 using MinhLam.Recruiter.Domain;
@@ -23,6 +25,9 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
 
         [Inject]
         public IJobPostingQuery JobPostingQuery { get; set; }
+
+        [Inject]
+        public IJobPostingService JobPostingService { get; set; }
 
         private int itemPerPage = 15;
         int pagePerSeggment = 5;
@@ -275,6 +280,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
             }
 
             gridViewRow.Cells[10].Visible = false;
+            gridViewRow.Cells[11].Visible = false;
         }
 
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
@@ -287,6 +293,89 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                 ViewState["SortDirection"] = "DESC";
             else
                 ViewState["SortDirection"] = "ASC";
+        }
+
+        private string GetSelectItem()
+        {
+            string selectItem = "";
+            foreach (GridViewRow gridViewRow in GridView1.Rows)
+            {
+                CheckBox checkBox = (CheckBox)
+                gridViewRow.FindControl("chkJobID");
+
+                if (checkBox.Checked)
+                {
+                    // JobId
+                    var jobId = gridViewRow.Cells[11].Text;
+                    selectItem += jobId + ",";
+                }
+            }
+
+            return selectItem;
+        }
+
+        protected void btnDisactivate_Click(object sender, EventArgs e)
+        {
+            string selectItem = GetSelectItem();
+            if (string.IsNullOrEmpty(selectItem) == false)
+            {
+                selectItem = selectItem.Substring(0, selectItem.Length - 1);
+                var listJobIds = selectItem.Split(',');
+                foreach (var jobId in listJobIds)
+                {
+                    try
+                    {
+                        var toggleActiveCommand = new ToggleActiveJobCommand(Guid.Parse(jobId));
+                        JobPostingService.ToggleActive(toggleActiveCommand);
+                    }
+                    catch (DomainException ex)
+                    {
+                        litError.Text = ex.Message;
+                    }
+                    catch (ApplicationServiceException ex)
+                    {
+                        litError.Text = ex.Message;
+                    }
+                    catch (Exception ex)
+                    {
+                        litError.Text = OperationExceptionCodes.InnerOperationProgramMessage;
+                    }
+                }
+
+                ShowResult(Guid.Parse(ddlFolder.SelectedValue), 0);
+            }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            string selectItem = GetSelectItem();
+            if (string.IsNullOrEmpty(selectItem) == false)
+            {
+                selectItem = selectItem.Substring(0, selectItem.Length - 1);
+                var listJobIds = selectItem.Split(',');
+                foreach (var jobId in listJobIds)
+                {
+                    try
+                    {
+                        var removeJobPostingCommand = new RCRemoveJobPostingCommand(Guid.Parse(jobId));
+                        JobPostingService.RemoveJobPostig(removeJobPostingCommand);
+                    }
+                    catch (DomainException ex)
+                    {
+                        litError.Text = ex.Message;
+                    }
+                    catch (ApplicationServiceException ex)
+                    {
+                        litError.Text = ex.Message;
+                    }
+                    catch (Exception ex)
+                    {
+                        litError.Text = OperationExceptionCodes.InnerOperationProgramMessage;
+                    }
+                }
+
+                ShowResult(Guid.Parse(ddlFolder.SelectedValue), 0);
+            }
         }
     }
 }

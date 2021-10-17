@@ -105,14 +105,15 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="FolderId" ShowHeader="False" />
+                                            <asp:BoundField DataField="JobId" ShowHeader="False" />
                                         </Columns>
                                     </asp:GridView>
                                     &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</td>
                             </tr>
                             <tr>
                                 <td align="center" style="text-align: left" valign="top" width="70%">&nbsp;
-                                    <asp:Button ID="btnDelete" runat="server" Text="Xóa" />&nbsp;
-                                <asp:Button ID="btnDisactivate" runat="server" Text="Bỏ kích hoạt" Width="90px" />&nbsp;
+                                    <asp:Button ID="btnDelete" runat="server" Text="Xóa" OnClick="btnDelete_Click" />&nbsp;
+                                <asp:Button ID="btnDisactivate" runat="server" Text="Bỏ kích hoạt" Width="90px" OnClick="btnDisactivate_Click" />&nbsp;
                                 <asp:Button ID="btnUpdate" runat="server" Text="Cập nhật thư mục"
                                     Width="120px" /><br />
                                     <br />
