@@ -290,6 +290,44 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                     RCJobPostingService.AddNewJobPosting(addNewPostingJob);
                     Response.Redirect("JobManager.aspx", false);
                 }
+                else
+                {
+                    var updateJobPostingCommand = new UpdateJobPostingCommand(
+                        Guid.Parse(literalID.Text),
+                        UserSession.RCUserId,
+                        txtTitle.Text,
+                        txtNo.Text,
+                        Convert.ToInt32(txtNumber.Text),
+                        txtSummary.Text,
+                        Guid.Parse(ddlWorkingType.SelectedValue),
+                        Guid.Parse(ddlLevel.SelectedValue),
+                        Convert.ToInt32(txtYearExperience.Text),
+                        txtAge.Text,
+                        txtRecruitment.Text,
+                        Convert.ToInt32(txtSalaryFrom.Text),
+                        Convert.ToInt32(txtSalaryTo.Text),
+                        ddlCurrency.SelectedValue,
+                        chkShowSalary.Checked,
+                        chkNegotive.Checked,
+                        Convert.ToDateTime(ddlCloseDate.SelectedValue),
+                        chkShowLogo.Checked,
+                        txtAdv.Text,
+                        txtSkills.Text,
+                        Guid.Parse(ddlIndustry.SelectedValue),
+                        Guid.Parse(ddlCategory.SelectedValue),
+                        Guid.Parse(ddlCertificate.SelectedValue),
+                        txtLocation.Text,
+                        Guid.Parse(ddlProvince.SelectedValue),
+                        Guid.Parse(ddlTemplate.SelectedValue),
+                        Guid.Parse(ddlFolder.SelectedValue),
+                        chkApplyOnline.Checked,
+                        txtURL.Text,
+                        txtContactEmail.Text,
+                        txtContactPerson.Text,
+                        txtContactTel.Text);
+                    RCJobPostingService.UpdateJobPosting(updateJobPostingCommand);
+                    Response.Redirect("JobManager.aspx", false);
+                }
                 
             }
             catch (DomainException ex)

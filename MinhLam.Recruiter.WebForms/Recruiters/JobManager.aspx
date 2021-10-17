@@ -49,10 +49,11 @@
                                                     <asp:Literal ID="litType" runat="server" Text="Quản lý tin"></asp:Literal>&nbsp;</b></td>
                                         </tr>
                                     </table>
-                                    Chú ý: Click vào JobId để xem trước, Tiêu đề Job để chỉnh sửa tin và số Job để xem phản hồi tin</td>
+                                    Chú ý: Click vào Tiêu đề  để chỉnh sửa tin và Mã số để xem phản hồi tin</td>
                                 <td align="right">
                                     <strong>Thu mục:</strong>
-                                    <asp:DropDownList ID="ddlFolder" runat="server" AutoPostBack="True" Width="119px">
+                                    <asp:DropDownList ID="ddlFolder" runat="server" AutoPostBack="True" Width="119px" 
+                                        OnSelectedIndexChanged="ddlFolder_SelectedIndexChanged">
                                     </asp:DropDownList>
                                     <asp:Button ID="btnPrint" runat="server" Text="In" Width="57px" />
                                 </td>
@@ -65,7 +66,8 @@
                             <tr>
                                 <td align="center" colspan="2" style="text-align: left" valign="top">
                                     <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False"
-                                        PageSize="20" Width="100%">
+                                        PageSize="20" Width="100%" OnRowDataBound="GridView1_RowDataBound" OnRowCreated="GridView1_RowCreated"
+                                        OnSorting="GridView1_Sorting">
                                         <PagerSettings Mode="NumericFirstLast" />
                                         <Columns>
                                             <asp:TemplateField HeaderText="#">
@@ -73,37 +75,36 @@
                                                     <asp:CheckBox ID="chkJobID" runat="server" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:HyperLinkField DataNavigateUrlFields="JobID" DataNavigateUrlFormatString="JobDetails.aspx?JobID={0}"
-                                                DataTextField="JobID" HeaderText="Job ID" SortExpression="JobID" />
+                                            <asp:BoundField DataField="" HeaderText="Xem" />
                                             <asp:HyperLinkField DataNavigateUrlFields="JobID" DataNavigateUrlFormatString="PostJob.aspx?JobID={0}"
-                                                DataTextField="JobTitle" HeaderText="Job Title" SortExpression="JobTitle" />
+                                                DataTextField="JobTitle" HeaderText="Tiêu đề" SortExpression="JobTitle" />
                                             <asp:HyperLinkField DataNavigateUrlFields="JobID" DataNavigateUrlFormatString="JobResponses.aspx?JobID={0}"
-                                                DataTextField="JobNo" HeaderText="Job No">
+                                                DataTextField="JobNo" HeaderText="Mã số">
                                                 <ItemStyle HorizontalAlign="Center" />
                                                 <HeaderStyle HorizontalAlign="Center" />
                                             </asp:HyperLinkField>
-                                            <asp:BoundField DataField="JobCategoryName" HeaderText="Job Category" />
+                                            <asp:BoundField DataField="CategoryName" HeaderText="Loại công việc" />
                                             <asp:BoundField DataField="PostDate" HeaderText="Post Date" SortExpression="PostedDate">
                                                 <ItemStyle HorizontalAlign="Center" />
                                                 <HeaderStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="CloseDate" HeaderText="Close Date" SortExpression="ClosedDate">
+                                            <asp:BoundField DataField="CloseDate" HeaderText="Ngày đóng" SortExpression="ClosedDate">
                                                 <ItemStyle HorizontalAlign="Center" />
                                                 <HeaderStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="RequiredNumber" HeaderText="Number">
+                                            <asp:BoundField DataField="RequiredNumber" HeaderText="Số lượng cần">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="ViewedNo" HeaderText="Viewed">
+                                            <asp:BoundField DataField="ViewedNo" HeaderText="Số lần xem">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:TemplateField HeaderText="Folder Name">
+                                            <asp:TemplateField HeaderText="Tên thư mục">
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="ddlFolder" runat="server" Width="105px">
                                                     </asp:DropDownList>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:BoundField DataField="FolderID" ShowHeader="False" />
+                                            <asp:BoundField DataField="FolderId" ShowHeader="False" />
                                         </Columns>
                                     </asp:GridView>
                                     &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</td>

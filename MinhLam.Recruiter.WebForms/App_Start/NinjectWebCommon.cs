@@ -84,6 +84,7 @@ namespace MinhLam.Recruiter.WebForms.App_Start
             kernel.Bind<ICheckExisting>().To<CheckExisting>();
             kernel.Bind<IGetData>().To<GetData>();
             kernel.Bind<IViewRCAccountQuery>().To<ViewRCAccountQuery>();
+            kernel.Bind<IJobPostingQuery>().To<JobPostingQuery>();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind<IHashedPassword>().To<HashedPassword>();
             kernel.Bind<ISendEmail>().To<SendEmail>();

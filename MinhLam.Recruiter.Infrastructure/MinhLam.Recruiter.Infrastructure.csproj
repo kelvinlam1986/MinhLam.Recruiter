@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Applications\JobPostingService.cs" />
     <Compile Include="Applications\MembershipService.cs" />
+    <Compile Include="Applications\Query\JobPostingQuery.cs" />
     <Compile Include="Applications\Query\ViewRCAccountQuery.cs" />
     <Compile Include="Applications\Redirector.cs" />
     <Compile Include="Configuration\IApplicationSettings.cs" />
