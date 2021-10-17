@@ -57,6 +57,21 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
             this.unitOfWork.Commit();
         }
 
+        public void ToggleActive(ToggleActiveJobCommand cmd)
+        {
+            var jobPosting = this.jobPostingRepository.GetById(cmd.JobId);
+            if (jobPosting == null)
+            {
+                throw new ApplicationServiceException(
+                    JobPostingExeptionCodes.CannotFoundJobPosting,
+                    "Không tìm thấy tin");
+            }
+
+            jobPosting.ToggleActive();
+            this.jobPostingRepository.Update(jobPosting);
+            this.unitOfWork.Commit();
+        }
+
         public void UpdateJobPosting(UpdateJobPostingCommand cmd)
         {
             var jobPosting = this.jobPostingRepository.GetById(cmd.JobId);

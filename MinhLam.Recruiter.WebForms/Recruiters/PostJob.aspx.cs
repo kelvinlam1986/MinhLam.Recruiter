@@ -343,5 +343,28 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                 literalError.Text = OperationExceptionCodes.InnerOperationProgramMessage;
             }
         }
+
+        protected void btnActivate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var toggleActiveCommand = new ToggleActiveJobCommand(Guid.Parse(literalID.Text));
+                RCJobPostingService.ToggleActive(toggleActiveCommand);
+                Response.Redirect("JobManager.aspx", false);
+            }
+            catch (DomainException ex)
+            {
+                literalError.Text = ex.Message;
+            }
+            catch (ApplicationServiceException ex)
+            {
+                literalError.Text = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                literalError.Text = OperationExceptionCodes.InnerOperationProgramMessage;
+            }
+
+        }
     }
 }

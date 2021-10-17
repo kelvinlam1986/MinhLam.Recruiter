@@ -471,9 +471,16 @@ namespace MinhLam.Recruiter.Domain
             this.FolderId = folderId;
         }
 
-        public void SetActivate()
+        public void ToggleActive()
         {
-            this.Activate = true;
+            if (Id == null || Id == Guid.Empty)
+            {
+                throw new DomainException(
+                    DomainExceptionCode.CannotFoundJobPosting,
+                    "Không tim thấy tin");
+            }
+
+            this.Activate = !this.Activate;
             this.UpdatedDate = DateTime.Now;
         }
 
