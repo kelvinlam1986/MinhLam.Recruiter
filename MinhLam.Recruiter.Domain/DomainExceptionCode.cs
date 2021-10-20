@@ -35,5 +35,6 @@
         public const string ContactPersonRequiredField = "contact_person_required_field";
         public const string ContactTelRequiredField = "contact_tel_required_field";
         public const string CannotFoundJobPosting = "cannot_found_job_posting";
+        public const string CannotFoundRCFolder = "cannot_found_rc_folder";
     }
 }

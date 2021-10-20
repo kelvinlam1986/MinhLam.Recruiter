@@ -115,7 +115,7 @@
                                     <asp:Button ID="btnDelete" runat="server" Text="Xóa" OnClick="btnDelete_Click" />&nbsp;
                                 <asp:Button ID="btnDisactivate" runat="server" Text="Bỏ kích hoạt" Width="90px" OnClick="btnDisactivate_Click" />&nbsp;
                                 <asp:Button ID="btnUpdate" runat="server" Text="Cập nhật thư mục"
-                                    Width="120px" /><br />
+                                    Width="120px" OnClick="btnUpdate_Click" /><br />
                                     <br />
                                     <asp:Literal ID="literalTotalText" runat="server" Text="Tổng số lượng tin: "></asp:Literal>
                                     <asp:Literal ID="literalTotal" runat="server" Text="0"></asp:Literal>

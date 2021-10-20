@@ -9,11 +9,14 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
     {
         private readonly IRCJobPostingRepository jobPostingRepository;
         private readonly IUnitOfWork unitOfWork;
+        private readonly ICheckExisting checkExisting;
 
         public JobPostingService(
+            ICheckExisting checkExisting,
             IRCJobPostingRepository jobPostingRepository,
             IUnitOfWork unitOfWork)
         {
+            this.checkExisting = checkExisting;
             this.jobPostingRepository = jobPostingRepository;
             this.unitOfWork = unitOfWork;
         }
@@ -82,6 +85,21 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
             }
 
             jobPosting.ToggleActive();
+            this.jobPostingRepository.Update(jobPosting);
+            this.unitOfWork.Commit();
+        }
+
+        public void UpdateFolder(RCUpdateFolderJobCommand cmd)
+        {
+            var jobPosting = this.jobPostingRepository.GetById(cmd.JobId);
+            if (jobPosting == null)
+            {
+                throw new ApplicationServiceException(
+                    JobPostingExeptionCodes.CannotFoundJobPosting,
+                    "Không tìm thấy tin");
+            }
+
+            jobPosting.UpdateFolder(cmd.FolderId, checkExisting);
             this.jobPostingRepository.Update(jobPosting);
             this.unitOfWork.Commit();
         }

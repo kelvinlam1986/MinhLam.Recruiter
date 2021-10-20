@@ -39,6 +39,8 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                 Redirector.GoToLogin();
             }
 
+            RegisterJavaScript();
+
             if (!IsPostBack)
             {
                 LoadFolders();
@@ -231,8 +233,6 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
             {
                 ddlFolder.Items.Add(new ListItem { Text = folder.FolderName, Value = folder.Id.ToString() });
             }
-
-            ddlFolder.Items.Insert(0, new ListItem { Text = "", Value = Guid.NewGuid().ToString() });
         }
 
         protected void ddlFolder_SelectedIndexChanged(object sender, EventArgs e)
@@ -274,9 +274,6 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                 {
                     dropDownList.Items.Add(new ListItem { Text = folder.FolderName, Value = folder.Id.ToString() });
                 }
-
-                dropDownList.Items.Insert(0, new ListItem { Text = "", Value = Guid.Empty.ToString() });
-
             }
 
             gridViewRow.Cells[10].Visible = false;
@@ -314,6 +311,13 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
             return selectItem;
         }
 
+        private void RegisterJavaScript()
+        {
+            this.ClientScript.RegisterClientScriptBlock(this.GetType(), "openWindow" + this.GridView1.ID, Printer.CreateScriptForPrint(this.GridView1.ID));
+            this.btnPrint.Attributes.Add("onclick", "openWindow" + this.GridView1.ID + "('" + GridView1.ID.ToString() + "',400,700);return false;");
+
+        }
+
         protected void btnDisactivate_Click(object sender, EventArgs e)
         {
             string selectItem = GetSelectItem();
@@ -346,6 +350,26 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
             }
         }
 
+        private Dictionary<string, string> GetFoldersUpdateItem()
+        {
+
+            Dictionary<string, string> itemsNeedUpdate = new Dictionary<string, string>();
+            foreach (GridViewRow gridViewRow
+            in GridView1.Rows)
+            {
+                DropDownList dropDownList = (DropDownList)
+                gridViewRow.FindControl("ddlFolder");
+
+                var folderId = gridViewRow.Cells[10].Text;
+                if (dropDownList.SelectedValue != folderId)
+                {
+                    var jobId = gridViewRow.Cells[11].Text;
+                    itemsNeedUpdate.Add(jobId, dropDownList.SelectedValue);
+                }
+            }
+            return itemsNeedUpdate;
+        }
+
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             string selectItem = GetSelectItem();
@@ -376,6 +400,35 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
 
                 ShowResult(Guid.Parse(ddlFolder.SelectedValue), 0);
             }
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var itemsNeedUpdate = GetFoldersUpdateItem();
+            foreach (var item in itemsNeedUpdate)
+            {
+                try
+                {
+                    var jobId = Guid.Parse(item.Key);
+                    var folderId = Guid.Parse(item.Value);
+                    var updateRCFolderJobCommand = new RCUpdateFolderJobCommand(jobId, folderId);
+                    JobPostingService.UpdateFolder(updateRCFolderJobCommand);
+                }
+                catch (DomainException ex)
+                {
+                    litError.Text = ex.Message;
+                }
+                catch (ApplicationServiceException ex)
+                {
+                    litError.Text = ex.Message;
+                }
+                catch (Exception ex)
+                {
+                    litError.Text = OperationExceptionCodes.InnerOperationProgramMessage;
+                }
+            }
+
+            ShowResult(Guid.Parse(ddlFolder.SelectedValue), 0);
         }
     }
 }

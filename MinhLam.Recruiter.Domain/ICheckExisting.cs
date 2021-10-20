@@ -21,5 +21,7 @@ namespace MinhLam.Recruiter.Domain
             int availability,
             int minAge,
             int maxAge);
+
+        bool RCFolderExistsWithId(Guid id);
     }
 }

@@ -36,6 +36,12 @@ namespace MinhLam.Recruiter.Infrastructure.Domains
             return account != null;
         }
 
+        public bool RCFolderExistsWithId(Guid id)
+        {
+            var folder = this.context.RCFolders.FirstOrDefault(x => x.Id == id);
+            return folder != null;
+        }
+
         public bool RCSavedSearchExistWith(Guid recruiterId, string keyword, Guid certificateId, Guid categoryId, Guid industryId, Guid provinceId, Guid workingTypeId, Guid workingLevelId, int gender, int availability, int minAge, int maxAge)
         {
             throw new NotImplementedException();

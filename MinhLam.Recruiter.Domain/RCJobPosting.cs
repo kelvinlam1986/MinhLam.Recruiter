@@ -466,8 +466,15 @@ namespace MinhLam.Recruiter.Domain
 
         }
 
-        public void UpdateFolder(Guid folderId)
+        public void UpdateFolder(Guid folderId, ICheckExisting checkExisting)
         {
+            if (checkExisting.RCFolderExistsWithId(folderId) == false)
+            {
+                throw new DomainException(
+                    DomainExceptionCode.CannotFoundRCFolder,
+                    "Không tìm thấy thư mục");
+            }
+
             this.FolderId = folderId;
         }
 
