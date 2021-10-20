@@ -366,5 +366,10 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
             }
 
         }
+
+        protected void btnPreView_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("JobDetails.aspx?JobId=" + literalID.Text);
+        }
     }
 }

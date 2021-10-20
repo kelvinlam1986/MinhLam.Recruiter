@@ -15,11 +15,61 @@ namespace MinhLam.Recruiter.Infrastructure.Applications.Query
             this.jobContext = context;
         }
 
+        public List<JobDetailByRecruiterDto> GetJobDetailByRecruiter(Guid jobId, Guid recruiterId)
+        {
+            var jobPosting = jobContext.RCJobPostings
+                            .Include("Recruiter")
+                            .Include("JobCategory")
+                            .Include("JobIndustry")
+                            .Include("Certificate")
+                            .Include("WorkingType")
+                            .Include("ExperienceLevel")
+                            .FirstOrDefault(x => x.Id == jobId && x.RecruiterId == recruiterId);
+            if (jobPosting == null)
+            {
+                return null;
+            }
+
+            var result = new JobDetailByRecruiterDto();
+            result.JobId = jobPosting.Id;
+            result.AdvName = jobPosting.AdvName;
+            result.RecruiterId = jobPosting.RecruiterId;
+            result.CompanyName = jobPosting.Recruiter?.CompanyName;
+            result.JobNo = jobPosting.JobNo;
+            result.JobTitle = jobPosting.JobTitle;
+            result.JobCategoryName = jobPosting.JobCategory?.Name;
+            result.JobIndustryName = jobPosting.JobIndustry?.Name;
+            result.CertificateName = jobPosting.Certificate?.Name;
+            result.WorkLocation = jobPosting.WorkLocation;
+            result.ContactEmail = jobPosting.ContactEmail;
+            result.ContactPerson = jobPosting.ContactPerson;
+            result.ContactTel = jobPosting.ContactTel;
+            result.JobSummary = jobPosting.JobSummary;
+            result.JobSkills = jobPosting.JobSkill;
+            result.SalaryFrom = jobPosting.SalaryFrom;
+            result.SalaryTo = jobPosting.SalaryTo;
+            result.Currency = jobPosting.Currency;
+            result.SalaryNegotive = jobPosting.SalaryNegotive ? "Có" : "Không";
+            result.ShowSalary = jobPosting.ShowSalary ? "Có" : "Không";
+            result.CloseDate = jobPosting.ClosedDate.ToString("dd/MM/yyyy");
+            result.WorkingTypeName = jobPosting.WorkingType?.Name;
+            result.ExperienceLevelName = jobPosting.ExperienceLevel?.Name;
+            result.RangeOfAge = jobPosting.RangeOfAge;
+            result.RecruitmentType = jobPosting.RecruitmentType;
+            result.RequiredNumber = jobPosting.RequiredNumber;
+            result.YearExperience = $"Ít nhất {jobPosting.YearExperience} năm";
+            result.OnlyApplyUrl = jobPosting.OnlyApplyUrl;
+
+            var listResult = new List<JobDetailByRecruiterDto>();
+            listResult.Add(result);
+            return listResult;
+        }
+
         public List<JobPostingDto> GetJobList(
-            Guid recruiterId, 
-            bool isActive, 
-            Guid folderId, 
-            int page, 
+            Guid recruiterId,
+            bool isActive,
+            Guid folderId,
+            int page,
             int pageSize,
             out int totalRow,
             string sortColumn = "",

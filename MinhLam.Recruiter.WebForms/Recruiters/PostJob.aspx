@@ -298,7 +298,7 @@
                                                                     <td colspan="2" nowrap="noWrap">
                                                                         <asp:Button ID="btnSave" runat="server" Text="Lưu" Width="92px" OnClick="btnSave_Click" />
                                                                         <asp:Button ID="btnActivate" runat="server" Text="Kích hoạt" Width="92px" OnClick="btnActivate_Click" />
-                                                                        <asp:Button ID="btnPreView" runat="server" Text="Xem trước" Width="92px" />
+                                                                        <asp:Button ID="btnPreView" runat="server" Text="Xem trước" Width="92px" OnClick="btnPreView_Click" />
                                                                         <input id="Button1" onclick="window.history.go(-1);" style="width: 58px" type="button" value="Trở về" />
                                                                     </td>
                                                                     <td style="width: 147px"></td>

@@ -167,6 +167,7 @@
     <Content Include="Recruiters\Images\opportunity.gif" />
     <Content Include="Recruiters\Images\recruiter.gif" />
     <Content Include="Recruiters\Images\recruitvietnam.gif" />
+    <Content Include="Recruiters\JobDetails.aspx" />
     <Content Include="Recruiters\JobManager.aspx" />
     <Content Include="Recruiters\PostJob.aspx" />
     <Content Include="Recruiters\Login.aspx" />
@@ -258,6 +259,13 @@
     </Compile>
     <Compile Include="Recruiters\ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recruiters\JobDetails.aspx.cs">
+      <DependentUpon>JobDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recruiters\JobDetails.aspx.designer.cs">
+      <DependentUpon>JobDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recruiters\JobManager.aspx.cs">
       <DependentUpon>JobManager.aspx</DependentUpon>

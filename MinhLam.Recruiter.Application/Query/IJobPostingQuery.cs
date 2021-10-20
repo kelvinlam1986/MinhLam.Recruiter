@@ -9,5 +9,7 @@ namespace MinhLam.Recruiter.Application.Query
          List<JobPostingDto> GetJobList(Guid recruiterId,
             bool isActive, Guid folderId, int page, int pageSize, 
             out int totalRow, string sortColumn = "", string sortType = "");
+
+        List<JobDetailByRecruiterDto> GetJobDetailByRecruiter(Guid jobId, Guid recruiterId);
     }
 }

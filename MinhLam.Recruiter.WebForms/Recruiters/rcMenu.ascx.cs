@@ -98,7 +98,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                 case "::Job Purchase":
                 case "::Đăng tin":
                 case "::Resume Details":
-                case "::Job Details":
+                case "::Tin chi tiết":
                 case "::Job Expired":
                 case "::Job Posting":
                     hyperLink = new HyperLink();
