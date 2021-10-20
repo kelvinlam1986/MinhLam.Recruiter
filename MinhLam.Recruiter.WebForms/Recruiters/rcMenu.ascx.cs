@@ -93,13 +93,14 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                     hyperLink.Text = "Logout";
                     hyperLink.NavigateUrl = "logout.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
+                  
                     break;
-                case "::Quản lý Job":
+                case "::Quản lý Tin tuyển dụng":
                 case "::Job Purchase":
                 case "::Đăng tin":
                 case "::Resume Details":
                 case "::Tin chi tiết":
-                case "::Job Expired":
+                case "::Tin đã đóng":
                 case "::Job Posting":
                     hyperLink = new HyperLink();
                     hyperLink.Text = "Đăng tin";
@@ -116,8 +117,8 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                     literal.Text = " | ";
                     this.panelMenu.Controls.Add(literal);
                     hyperLink = new HyperLink();
-                    hyperLink.Text = "Closed Job";
-                    hyperLink.NavigateUrl = "jobexpired.aspx";
+                    hyperLink.Text = "Tin đã đóng";
+                    hyperLink.NavigateUrl = "JobExpired.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
                     literal.Text = " | ";
@@ -126,6 +127,9 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                     hyperLink.Text = "Job Folders";
                     hyperLink.NavigateUrl = "jobfolders.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
+                    TdMyAccount.BgColor = "#000099";
+                    TdHome.BgColor = "#000099";
+                    TdJobManager.BgColor = "#099999";
                     if (Session.Contents["rcuserid"] != null)
                     {
                         literal = new Literal();

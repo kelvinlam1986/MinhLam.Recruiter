@@ -13,9 +13,9 @@
             <div class="OLblEms"><a href="/recruiters/myaccount.aspx" class="OLblEms">
                 <font color="white">Quản lý Account</font></a></div>
         </td>
-        <td width="90" align="center" height="13" nowrap>
-            <div class="OLblEms"><a href="/recruiters/jobmanager.aspx" class="OLblEms">
-                <font color="white">Quản lý Job</font></a></div>
+        <td width="90" align="center" height="13" nowrap runat="server" id="TdJobManager">
+            <div class="OLblEms"><a href="/recruiters/jobmanager.aspx" class="OLblEms" >
+                <font color="white">Quản lý Tin</font></a></div>
         </td>
         <td width="100" align="center" height="13" nowrap>
             <div class="OLblEms"><a href="/recruiters/resumemanager.aspx" class="OLblEms">
