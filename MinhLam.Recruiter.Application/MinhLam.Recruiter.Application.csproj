@@ -65,10 +65,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\IFolderQuery.cs" />
     <Compile Include="Query\IJobPostingQuery.cs" />
+    <Compile Include="Query\IJobPurchaseQuery.cs" />
     <Compile Include="Query\IViewRCAccountQuery.cs" />
     <Compile Include="Query\ViewModel\FolderDto.cs" />
     <Compile Include="Query\ViewModel\JobDetailByRecruiterDto.cs" />
     <Compile Include="Query\ViewModel\JobPostingDto.cs" />
+    <Compile Include="Query\ViewModel\JobPurchaseDto.cs" />
     <Compile Include="Query\ViewModel\MyRCAccount.cs" />
   </ItemGroup>
   <ItemGroup>

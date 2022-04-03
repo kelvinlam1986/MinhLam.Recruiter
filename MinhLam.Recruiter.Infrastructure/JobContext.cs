@@ -21,6 +21,8 @@ namespace MinhLam.Recruiter.Infrastructure
         public DbSet<RCFolder> RCFolders { get; set; }
         public DbSet<Template> Templates { get; set; }
         public DbSet<RCJobPosting> RCJobPostings { get; set; }
+        public DbSet<SalesPackage> SalesPackage { get; set; }
+        public DbSet<SalesPackageDetail> SalesPackageDetails { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,6 +36,8 @@ namespace MinhLam.Recruiter.Infrastructure
             modelBuilder.Configurations.Add(new RCFolderConfiguration());
             modelBuilder.Configurations.Add(new TemplateConfiguration());
             modelBuilder.Configurations.Add(new RCJobPostingConfiguration());
+            modelBuilder.Configurations.Add(new SalesPackageConfiguration());
+            modelBuilder.Configurations.Add(new SalesPackageDetailConfiguration());
         }
     }
 }

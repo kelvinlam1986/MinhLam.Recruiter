@@ -58,6 +58,7 @@
     <Compile Include="Applications\MembershipService.cs" />
     <Compile Include="Applications\Query\FolderQuery.cs" />
     <Compile Include="Applications\Query\JobPostingQuery.cs" />
+    <Compile Include="Applications\Query\JobPurchaseQuery.cs" />
     <Compile Include="Applications\Query\ViewRCAccountQuery.cs" />
     <Compile Include="Applications\Redirector.cs" />
     <Compile Include="Configuration\IApplicationSettings.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="DbConfiguration\RCAccountConfiguration.cs" />
     <Compile Include="DbConfiguration\RCFolderConfiguration.cs" />
     <Compile Include="DbConfiguration\RCJobPostingConfiguration.cs" />
+    <Compile Include="DbConfiguration\SalesPackageConfiguration.cs" />
+    <Compile Include="DbConfiguration\SalesPackageDetailConfiguration.cs" />
     <Compile Include="DbConfiguration\TemplateConfiguration.cs" />
     <Compile Include="DbConfiguration\WorkingTypeConfiguration.cs" />
     <Compile Include="Domains\CheckExisting.cs" />
@@ -115,6 +118,14 @@
     <Compile Include="Migrations\202110150443401_AddRCJobPostingTable.cs" />
     <Compile Include="Migrations\202110150443401_AddRCJobPostingTable.designer.cs">
       <DependentUpon>202110150443401_AddRCJobPostingTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204030946398_AddSalesPackageTable.cs" />
+    <Compile Include="Migrations\202204030946398_AddSalesPackageTable.designer.cs">
+      <DependentUpon>202204030946398_AddSalesPackageTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204030948073_AddSalesPackageDetailTable.cs" />
+    <Compile Include="Migrations\202204030948073_AddSalesPackageDetailTable.designer.cs">
+      <DependentUpon>202204030948073_AddSalesPackageDetailTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -179,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110150443401_AddRCJobPostingTable.resx">
       <DependentUpon>202110150443401_AddRCJobPostingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204030946398_AddSalesPackageTable.resx">
+      <DependentUpon>202204030946398_AddSalesPackageTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204030948073_AddSalesPackageDetailTable.resx">
+      <DependentUpon>202204030948073_AddSalesPackageDetailTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
