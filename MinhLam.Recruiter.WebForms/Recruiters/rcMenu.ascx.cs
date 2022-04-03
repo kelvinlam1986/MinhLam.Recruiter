@@ -102,6 +102,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                 case "::Tin chi tiết":
                 case "::Tin đã đóng":
                 case "::Job Posting":
+                case "::Thư mục":
                     hyperLink = new HyperLink();
                     hyperLink.Text = "Đăng tin";
                     hyperLink.NavigateUrl = "PostJob.aspx";
@@ -124,7 +125,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                     literal.Text = " | ";
                     this.panelMenu.Controls.Add(literal);
                     hyperLink = new HyperLink();
-                    hyperLink.Text = "Job Folders";
+                    hyperLink.Text = "Thư mục";
                     hyperLink.NavigateUrl = "jobfolders.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     TdMyAccount.BgColor = "#000099";

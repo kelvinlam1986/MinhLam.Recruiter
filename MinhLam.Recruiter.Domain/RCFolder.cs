@@ -21,23 +21,59 @@ namespace MinhLam.Recruiter.Domain
             ICheckExisting checkExisting,
             IRCFolderRepository folderRepository)
         {
+            if (string.IsNullOrEmpty(folderName))
+            {
+                throw new DomainException(DomainExceptionCode.FolderNameRequiredField,
+                    "Bạn phải nhập tên thư mục");
+            }
+
+            if (checkExisting.RCAccountExistWithId(recruiterId) == false)
+            {
+                throw new DomainException(DomainExceptionCode.RCAccountCanNotFound,
+                    "Không tìm thấy nhà tuyển dụng");
+            }
+
             bool hasFolderOfRecruiterWithName =
                 checkExisting.FolderExistWithNameAndRecruiterId(recruiterId, folderName);
 
             var folderOfRecruiters = folderRepository.GetListFolderOfRecruiter(recruiterId);
             bool lessTenFolders = folderOfRecruiters.Count < 10;
 
-            if (hasFolderOfRecruiterWithName == false && lessTenFolders)
+            if (hasFolderOfRecruiterWithName)
             {
-                return new RCFolder(
+                throw new DomainException(
+                  DomainExceptionCode.RCFolderExists,
+                  $"Thư mục {folderName} đã tồn tại");
+            }
+
+            if (hasFolderOfRecruiterWithName == false && lessTenFolders == false)
+            {
+                throw new DomainException(
+                    DomainExceptionCode.OverMaximumFolderCreate,
+                    "Bạn chỉ được tạo tối đa 10 thư mục");
+            }
+
+            return new RCFolder(
                    Guid.NewGuid(),
                    recruiterId,
                    folderName,
                    folderDescription,
                    folderManager);
+        }
+
+        public static RCFolder NewFromRemove(
+            Guid folderId, 
+            ICheckExisting checkExisting,
+            IRCFolderRepository folderRepository)
+        {
+            var isExist = checkExisting.RCFolderExistsWithId(folderId);
+            if (isExist == false)
+            {
+                throw new DomainException(DomainExceptionCode.CannotFoundRCFolder, "Không tìm thấy thư mục này");
             }
 
-            return null;
+            var folder = folderRepository.GetById(folderId);
+            return folder;
         }
 
         protected RCFolder(

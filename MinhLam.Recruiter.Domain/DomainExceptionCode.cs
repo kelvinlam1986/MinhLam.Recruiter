@@ -36,5 +36,8 @@
         public const string ContactTelRequiredField = "contact_tel_required_field";
         public const string CannotFoundJobPosting = "cannot_found_job_posting";
         public const string CannotFoundRCFolder = "cannot_found_rc_folder";
+        public const string RCFolderExists = "rc_folder_exists";
+        public const string OverMaximumFolderCreate = "over_maximum_folder_create";
+        public const string FolderNameRequiredField = "folder_name_required_field";
     }
 }

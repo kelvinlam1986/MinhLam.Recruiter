@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddNewFolderCommand.cs" />
     <Compile Include="Commands\AddNewJobPostingCommand.cs" />
     <Compile Include="Commands\RCChangePasswordCommand.cs" />
+    <Compile Include="Commands\RCFolderRemoveCommand.cs" />
     <Compile Include="Commands\RCForgotPasswordCommand.cs" />
     <Compile Include="Commands\RCLoginCommand.cs" />
     <Compile Include="Commands\RCRegisterAccountCommand.cs" />
@@ -54,14 +56,17 @@
     <Compile Include="Commands\RCUploadLogoCommand.cs" />
     <Compile Include="Commands\ToggleActiveJobCommand.cs" />
     <Compile Include="Commands\UpdateJobPostingCommand.cs" />
+    <Compile Include="IFolderService.cs" />
     <Compile Include="IJobPostingService.cs" />
     <Compile Include="IMembershipService.cs" />
     <Compile Include="IRedirector.cs" />
     <Compile Include="JobPostingExeptionCodes.cs" />
     <Compile Include="MembershipExceptionCodes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\IFolderQuery.cs" />
     <Compile Include="Query\IJobPostingQuery.cs" />
     <Compile Include="Query\IViewRCAccountQuery.cs" />
+    <Compile Include="Query\ViewModel\FolderDto.cs" />
     <Compile Include="Query\ViewModel\JobDetailByRecruiterDto.cs" />
     <Compile Include="Query\ViewModel\JobPostingDto.cs" />
     <Compile Include="Query\ViewModel\MyRCAccount.cs" />

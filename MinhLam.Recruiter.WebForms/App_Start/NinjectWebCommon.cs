@@ -79,11 +79,14 @@ namespace MinhLam.Recruiter.WebForms.App_Start
             kernel.Bind<IUserCookie>().To<UserCookie>();
             kernel.Bind<IMembershipService>().To<MembershipService>();
             kernel.Bind<IJobPostingService>().To<JobPostingService>();
+            kernel.Bind<IFolderService>().To<FolderService>();
             kernel.Bind<IRCAccountRepository>().To<RCAccountRepository>();
             kernel.Bind<IRCJobPostingRepository>().To<RCJobPostingRepository>();
+            kernel.Bind<IRCFolderRepository>().To<RCFolderRepository>();
             kernel.Bind<ICheckExisting>().To<CheckExisting>();
             kernel.Bind<IGetData>().To<GetData>();
             kernel.Bind<IViewRCAccountQuery>().To<ViewRCAccountQuery>();
+            kernel.Bind<IFolderQuery>().To<FolderQuery>();
             kernel.Bind<IJobPostingQuery>().To<JobPostingQuery>();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind<IHashedPassword>().To<HashedPassword>();

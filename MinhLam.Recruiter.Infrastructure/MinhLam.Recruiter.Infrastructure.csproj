@@ -53,8 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\FolderService.cs" />
     <Compile Include="Applications\JobPostingService.cs" />
     <Compile Include="Applications\MembershipService.cs" />
+    <Compile Include="Applications\Query\FolderQuery.cs" />
     <Compile Include="Applications\Query\JobPostingQuery.cs" />
     <Compile Include="Applications\Query\ViewRCAccountQuery.cs" />
     <Compile Include="Applications\Redirector.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RCAccountRepository.cs" />
+    <Compile Include="Repositories\RCFolderRepository.cs" />
     <Compile Include="Repositories\RCJobPostingRepository.cs" />
     <Compile Include="RepositoryBase.cs" />
     <Compile Include="Sessions\IUserCookie.cs" />

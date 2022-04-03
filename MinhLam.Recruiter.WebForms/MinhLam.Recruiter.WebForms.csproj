@@ -169,6 +169,7 @@
     <Content Include="Recruiters\Images\recruitvietnam.gif" />
     <Content Include="Recruiters\JobDetails.aspx" />
     <Content Include="Recruiters\JobExpired.aspx" />
+    <Content Include="Recruiters\JobFolders.aspx" />
     <Content Include="Recruiters\JobManager.aspx" />
     <Content Include="Recruiters\PostJob.aspx" />
     <Content Include="Recruiters\Login.aspx" />
@@ -274,6 +275,13 @@
     </Compile>
     <Compile Include="Recruiters\JobExpired.aspx.designer.cs">
       <DependentUpon>JobExpired.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recruiters\JobFolders.aspx.cs">
+      <DependentUpon>JobFolders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recruiters\JobFolders.aspx.designer.cs">
+      <DependentUpon>JobFolders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recruiters\JobManager.aspx.cs">
       <DependentUpon>JobManager.aspx</DependentUpon>

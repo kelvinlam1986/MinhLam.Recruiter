@@ -15,7 +15,8 @@ namespace MinhLam.Recruiter.Infrastructure.Domains
 
         public bool FolderExistWithNameAndRecruiterId(Guid recruiterId, string name)
         {
-            throw new NotImplementedException();
+            var folder = this.context.RCFolders.FirstOrDefault(x => x.RecruiterId == recruiterId && x.FolderName == name);
+            return folder != null;
         }
 
         public bool ProvinceExistsWithId(Guid id)
