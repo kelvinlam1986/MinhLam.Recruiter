@@ -10,5 +10,6 @@ namespace MinhLam.Recruiter.Application
         void RemoveJobPostig(RCRemoveJobPostingCommand cmd);
         void UpdateFolder(RCUpdateFolderJobCommand cmd);
         void AddSalesPackage(RCAddSalesPackageCommand cmd);
+        void RemoveSalesPackage(RCRemoveSalesPackageCommand cmd);
     }
 }

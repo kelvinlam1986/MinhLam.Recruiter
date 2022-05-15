@@ -107,6 +107,22 @@ namespace MinhLam.Recruiter.Domain
         }
 
 
+        public static SalesPackage InitForRemove(Guid salesPackageId, ISalesPackageRepository salesPackageRepository)
+        {
+            if (salesPackageId == Guid.Empty)
+            {
+                throw new DomainException(DomainExceptionCode.SalesPackageNotFound, "Không tìm thấy gói");
+            }
+
+            var salesPackage = salesPackageRepository.GetById(salesPackageId);
+            if (salesPackage == null)
+            {
+                throw new DomainException(DomainExceptionCode.SalesPackageNotFound, "Không tìm thấy gói");
+            }
+
+            return salesPackage;
+        }
+
         public void AddSalesPackageDetail(
             Guid packageId,
             string packageName, 
@@ -128,5 +144,17 @@ namespace MinhLam.Recruiter.Domain
                 );
             SalesPackageDetails.Add(newSalesPackageDetail);
         }
+
+        public void Remove(ISalesPackageRepository salesPackageRepository, IUnitOfWork unitOfWork)
+        {
+            var salesPackageDetails = salesPackageRepository.GetSalesPackageDetails(this.Id);
+            foreach (var salesPackageDetail in salesPackageDetails)
+            {
+                salesPackageRepository.RemoveSalesPackageDetail(salesPackageDetail);
+            }
+            salesPackageRepository.Remove(this);
+            unitOfWork.Commit();
+        }
+
     }
 }

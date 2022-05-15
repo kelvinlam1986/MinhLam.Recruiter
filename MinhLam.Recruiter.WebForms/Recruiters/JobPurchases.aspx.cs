@@ -1,5 +1,6 @@
 ﻿using MinhLam.Framework;
 using MinhLam.Recruiter.Application;
+using MinhLam.Recruiter.Application.Commands;
 using MinhLam.Recruiter.Application.Query;
 using MinhLam.Recruiter.Infrastructure.Sessions;
 using Ninject;
@@ -19,6 +20,9 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
         [Inject]
         public IJobPurchaseQuery JobPurchaseQuery { get; set; }
 
+        [Inject]
+        public IJobPostingService JobPostingService { get; set; }
+
         private int itemPerPage = 15;
         int pagePerSeggment = 5;
 
@@ -36,6 +40,13 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                 ViewState["SortDirection"] = "ASC";
                 ShowResult(0);
             }
+
+            CreateNavigation(
+               Convert.ToInt32(literalPages.Text),
+               Convert.ToInt32(literalCurrentPage.Text),
+               itemPerPage,
+               pagePerSeggment,
+               this.panelNavigation);
         }
 
         private void RegisterJavaScript()
@@ -211,5 +222,90 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
             literalRecords.Text = " - Hiển thị tin: " + (nextPage - 1) * itemPerPage + " -> " + endJobs.ToString();
             ShowResult(nextPage - 1);
         }
+
+        protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            GridViewRow gridViewRow = e.Row;
+            gridViewRow.Cells[1].Visible = false;
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            GridViewRow gridViewRow = e.Row;
+            if (gridViewRow.RowType == DataControlRowType.DataRow)
+            {
+                CheckBox checkBox = (CheckBox)gridViewRow.Cells[0].FindControl("chkPackageID");
+                if (gridViewRow.Cells[1].Text == "")
+                {
+                    checkBox.Visible = false;
+                }
+
+                if (gridViewRow.Cells[9].Text == "Đã thanh toán")
+                {
+                    checkBox.Enabled = false;
+                }
+            }
+        }
+
+        protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            ShowResult( Convert.ToInt32(literalCurrentPage.Text) - 1, e.SortExpression, ViewState["SortDirection"].ToString());
+            if (ViewState["SortDirection"].ToString() == "ASC")
+                ViewState["SortDirection"] = "DESC";
+            else
+                ViewState["SortDirection"] = "ASC";
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            string selectItem = GetSelectItem();
+            if (string.IsNullOrEmpty(selectItem) == false)
+            {
+                selectItem = selectItem.Substring(0, selectItem.Length - 1);
+                var listPackageId = selectItem.Split(',');
+                foreach (var salesPackageId in listPackageId)
+                {
+                    try
+                    {
+                        var removeSalesPackageCommand = new RCRemoveSalesPackageCommand(Guid.Parse(salesPackageId));
+                        JobPostingService.RemoveSalesPackage(removeSalesPackageCommand);
+                    }
+                    catch (DomainException ex)
+                    {
+                        litError.Text = ex.Message;
+                    }
+                    catch (ApplicationServiceException ex)
+                    {
+                        litError.Text = ex.Message;
+                    }
+                    catch (Exception ex)
+                    {
+                        litError.Text = OperationExceptionCodes.InnerOperationProgramMessage;
+                    }
+                }
+
+                ShowResult(0);
+            }
+        }
+
+        private string GetSelectItem()
+        {
+            string selectItem = "";
+            foreach (GridViewRow gridViewRow in GridView1.Rows)
+            {
+                CheckBox checkBox = (CheckBox)
+                gridViewRow.FindControl("chkPackageID");
+
+                if (checkBox.Checked)
+                {
+                    // PackageID
+                    var jobId = gridViewRow.Cells[1].Text;
+                    selectItem += jobId + ",";
+                }
+            }
+
+            return selectItem;
+        }
+
     }
 }

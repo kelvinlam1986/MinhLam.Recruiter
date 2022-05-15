@@ -51,6 +51,7 @@
         public const string PackageQuantityInvalid = "package_quantity_invalid";
         public const string PackagePriceInvalid = "package_price_invalid";
         public const string PackageTypeInvalid = "package_type_invalid";
+        public const string SalesPackageNotFound = "sales_package_not_found";
 
     }
 }

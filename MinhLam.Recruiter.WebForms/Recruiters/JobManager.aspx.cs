@@ -30,7 +30,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
         public IJobPostingService JobPostingService { get; set; }
 
         private int itemPerPage = 15;
-        int pagePerSeggment = 5;
+        int pagePerSeggment = 3;
 
         protected void Page_Load(object sender, EventArgs e)
         {

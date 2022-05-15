@@ -92,6 +92,12 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
             this.unitOfWork.Commit();
         }
 
+        public void RemoveSalesPackage(RCRemoveSalesPackageCommand cmd)
+        {
+            var salesPackage = SalesPackage.InitForRemove(cmd.SalesPackageId, salesPackageRepository);
+            salesPackage.Remove(salesPackageRepository, unitOfWork);
+        }
+
         public void ToggleActive(ToggleActiveJobCommand cmd)
         {
             var jobPosting = this.jobPostingRepository.GetById(cmd.JobId);

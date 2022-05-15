@@ -50,6 +50,7 @@
     <Compile Include="Commands\RCLoginCommand.cs" />
     <Compile Include="Commands\RCRegisterAccountCommand.cs" />
     <Compile Include="Commands\RCRemoveJobPostingCommand.cs" />
+    <Compile Include="Commands\RCRemoveSalesPackageCommand.cs" />
     <Compile Include="Commands\RCResetHitViewCommand.cs" />
     <Compile Include="Commands\RCUpdateAccountCommand.cs" />
     <Compile Include="Commands\RCUpdateCompanyCommand.cs" />

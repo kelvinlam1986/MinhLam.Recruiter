@@ -65,7 +65,8 @@
                             <tr>
                                 <td align="center" colspan="2" style="text-align: left" valign="top">
                                     <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False"
-                                        PageSize="20" Width="100%">
+                                        PageSize="20" Width="100%" OnRowCreated="GridView1_RowCreated" OnRowDataBound="GridView1_RowDataBound"
+                                        OnSorting="GridView1_Sorting">
                                         <PagerSettings Mode="NumericFirstLast" />
                                         <Columns>
                                             <asp:TemplateField HeaderText="#">
@@ -73,36 +74,33 @@
                                                     <asp:CheckBox ID="chkPackageID" runat="server" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:BoundField DataField="PackageID" HeaderText="Package ID" SortExpression="PackageID">
+                                            <asp:BoundField DataField="PackageID" ShowHeader="False" />
+                                            <asp:BoundField DataField="ContactName" HeaderText="Người liên hệ" SortExpression="ContactName" />
+                                            <asp:BoundField DataField="OrdersDate" HeaderText="Ngày đặt" SortExpression="OrderDate">
                                                 <ItemStyle HorizontalAlign="Center" />
                                                 <HeaderStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="ContactName" HeaderText="Contact Name" SortExpression="ContactName" />
-                                            <asp:BoundField DataField="OrdersDate" HeaderText="Order Date" SortExpression="OrderDate">
+                                            <asp:BoundField DataField="Quantity" HeaderText="Số lượng">
                                                 <ItemStyle HorizontalAlign="Center" />
                                                 <HeaderStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="Quantity" HeaderText="Quantity">
+                                            <asp:BoundField DataField="Package" HeaderText="Gói">
                                                 <ItemStyle HorizontalAlign="Center" />
                                                 <HeaderStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="Package" HeaderText="Package">
+                                            <asp:BoundField DataField="Price" HeaderText="Giá">
                                                 <ItemStyle HorizontalAlign="Center" />
                                                 <HeaderStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="Price" HeaderText="Price">
+                                            <asp:BoundField DataField="Currency" HeaderText="Loại tiền">
                                                 <ItemStyle HorizontalAlign="Center" />
                                                 <HeaderStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="Currency" HeaderText="Currency">
-                                                <ItemStyle HorizontalAlign="Center" />
-                                                <HeaderStyle HorizontalAlign="Center" />
-                                            </asp:BoundField>
-                                            <asp:BoundField DataField="PaymentBy" HeaderText="Payment By" />
-                                            <asp:BoundField DataField="Status" HeaderText="Status">
+                                            <asp:BoundField DataField="PaymentBy" HeaderText="Thanh toán bằng" />
+                                            <asp:BoundField DataField="Status" HeaderText="Trạng thái">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="PaidDate" HeaderText="Paid Date" />
+                                            <asp:BoundField DataField="PaidDate" HeaderText="Đã thanh toán" />
                                         </Columns>
                                     </asp:GridView>
                                     &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
@@ -110,7 +108,7 @@
                             </tr>
                             <tr>
                                 <td align="center" style="text-align: left" valign="top" width="70%">&nbsp;
-                                    <asp:Button ID="btnDelete" runat="server" Text="Xóa" />&nbsp;
+                                    <asp:Button ID="btnDelete" runat="server" Text="Xóa" OnClick="btnDelete_Click" />&nbsp;
                                 &nbsp;&nbsp;<br />
                                     <br />
                                     <asp:Literal ID="literalTotalText" runat="server" Text="Tổng số lượng tin: "></asp:Literal>

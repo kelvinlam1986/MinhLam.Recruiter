@@ -24,42 +24,32 @@ namespace MinhLam.Recruiter.Infrastructure.Applications.Query
                             .Include("Recruiter")
                             .Where(x => x.RecruiterId == recruiterId)
                             .OrderByDescending(x => x.OrderDate);
-            //switch (sortColumn)
-            //{
-            //    case "JobTitle":
-            //        if (sortType == "ASC")
-            //        {
-            //            query = query.OrderBy(x => x.JobTitle);
-            //        }
-            //        else
-            //        {
-            //            query = query.OrderByDescending(x => x.JobTitle);
-            //        }
-            //        break;
-            //    case "PostedDate":
-            //        if (sortType == "ASC")
-            //        {
-            //            query = query.OrderBy(x => x.PostedDate);
-            //        }
-            //        else
-            //        {
-            //            query = query.OrderByDescending(x => x.PostedDate);
-            //        }
-            //        break;
-            //    case "ClosedDate":
-            //        if (sortType == "ASC")
-            //        {
-            //            query = query.OrderBy(x => x.ClosedDate);
-            //        }
-            //        else
-            //        {
-            //            query = query.OrderByDescending(x => x.ClosedDate);
-            //        }
-            //        break;
-            //    default:
-            //        query = query.OrderByDescending(x => x.PostedDate).ThenByDescending(x => x.ClosedDate);
-            //        break;
-            //}
+            switch (sortColumn)
+            {
+                case "ContactName":
+                    if (sortType == "ASC")
+                    {
+                        query = query.OrderBy(x => x.ContactName);
+                    }
+                    else
+                    {
+                        query = query.OrderByDescending(x => x.ContactName);
+                    }
+                    break;
+                case "OrderDate":
+                    if (sortType == "ASC")
+                    {
+                        query = query.OrderBy(x => x.OrderDate);
+                    }
+                    else
+                    {
+                        query = query.OrderByDescending(x => x.OrderDate);
+                    }
+                    break;
+                default:
+                    query = query.OrderByDescending(x => x.OrderDate);
+                    break;
+            }
 
             totalRow = query.Count();
             var jobPostings = query.Skip(page * pageSize).Take(pageSize).ToList();
