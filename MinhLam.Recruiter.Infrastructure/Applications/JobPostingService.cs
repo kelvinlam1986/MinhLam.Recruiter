@@ -8,16 +8,22 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
     public class JobPostingService : IJobPostingService
     {
         private readonly IRCJobPostingRepository jobPostingRepository;
+        private readonly ISalesPackageRepository salesPackageRepository;
         private readonly IUnitOfWork unitOfWork;
         private readonly ICheckExisting checkExisting;
+        private readonly IGetData getData;
 
         public JobPostingService(
             ICheckExisting checkExisting,
+            IGetData getData,
             IRCJobPostingRepository jobPostingRepository,
+            ISalesPackageRepository salesPackageRepository,
             IUnitOfWork unitOfWork)
         {
             this.checkExisting = checkExisting;
+            this.getData = getData;
             this.jobPostingRepository = jobPostingRepository;
+            this.salesPackageRepository = salesPackageRepository;
             this.unitOfWork = unitOfWork;
         }
 
@@ -57,6 +63,18 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
                 cmd.ContactTel);
 
             this.jobPostingRepository.Add(jobPosting);
+            this.unitOfWork.Commit();
+        }
+
+        public void AddSalesPackage(RCAddSalesPackageCommand cmd)
+        {
+            var salesPackage = SalesPackage.New(cmd.RecruiterId, cmd.ContactName, cmd.PaymentBy, cmd.PaymentCurrency, checkExisting);
+            foreach (var item in cmd.PackageDetails)
+            {
+                salesPackage.AddSalesPackageDetail(item.PackageId, item.PackageName, item.PackageQuantity, item.PackagePrice, item.PackageType, checkExisting, getData);
+            }
+
+            this.salesPackageRepository.Add(salesPackage);
             this.unitOfWork.Commit();
         }
 

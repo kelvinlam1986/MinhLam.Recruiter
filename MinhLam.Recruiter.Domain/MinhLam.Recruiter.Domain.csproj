@@ -54,11 +54,13 @@
     <Compile Include="IRCFolderRepository.cs" />
     <Compile Include="IRCJobPostingRepository.cs" />
     <Compile Include="IRCSavedSearchRepository.cs" />
+    <Compile Include="ISalesPackageRepository.cs" />
     <Compile Include="ISendEmail.cs" />
     <Compile Include="JobCategory.cs" />
     <Compile Include="JobIndustry.cs" />
     <Compile Include="JobPostingAddedEvent.cs" />
     <Compile Include="JSCertificate.cs" />
+    <Compile Include="Package.cs" />
     <Compile Include="Province.cs" />
     <Compile Include="RCSavedSearch.cs" />
     <Compile Include="Template.cs" />

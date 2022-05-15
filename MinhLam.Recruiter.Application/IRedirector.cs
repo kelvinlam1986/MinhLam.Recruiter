@@ -6,5 +6,6 @@
         void GoToRCMyAccount();
         void GoToLogin();
         void GoToJobManager();
+        void GoToJobPurchases();
     }
 }

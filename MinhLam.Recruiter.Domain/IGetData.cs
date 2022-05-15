@@ -15,5 +15,7 @@ namespace MinhLam.Recruiter.Domain
         List<WorkingType> GetWorkingTypes();
         List<RCFolder> GetFoldersOfRecruiter(Guid recruiterId);
         List<Template> GetTemplates();
+        Package GetPackageById(Guid id);
+
     }
 }

@@ -39,6 +39,11 @@ namespace MinhLam.Recruiter.Infrastructure.Domains
             return this.context.JSCertificates.ToList();
         }
 
+        public Package GetPackageById(Guid id)
+        {
+            return this.context.Packages.FirstOrDefault(x => x.Id == id);
+        }
+
         public List<Province> GetProvinces()
         {
             return this.context.Provinces.ToList();

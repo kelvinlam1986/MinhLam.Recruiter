@@ -171,6 +171,7 @@
     <Content Include="Recruiters\JobExpired.aspx" />
     <Content Include="Recruiters\JobFolders.aspx" />
     <Content Include="Recruiters\JobManager.aspx" />
+    <Content Include="Recruiters\JobPurchase.aspx" />
     <Content Include="Recruiters\JobPurchases.aspx" />
     <Content Include="Recruiters\PostJob.aspx" />
     <Content Include="Recruiters\Login.aspx" />
@@ -290,6 +291,13 @@
     </Compile>
     <Compile Include="Recruiters\JobManager.aspx.designer.cs">
       <DependentUpon>JobManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recruiters\JobPurchase.aspx.cs">
+      <DependentUpon>JobPurchase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recruiters\JobPurchase.aspx.designer.cs">
+      <DependentUpon>JobPurchase.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recruiters\JobPurchases.aspx.cs">
       <DependentUpon>JobPurchases.aspx</DependentUpon>

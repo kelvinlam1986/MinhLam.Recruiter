@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Commands\AddNewFolderCommand.cs" />
     <Compile Include="Commands\AddNewJobPostingCommand.cs" />
+    <Compile Include="Commands\RCAddSalesPackageCommand.cs" />
     <Compile Include="Commands\RCChangePasswordCommand.cs" />
     <Compile Include="Commands\RCFolderRemoveCommand.cs" />
     <Compile Include="Commands\RCForgotPasswordCommand.cs" />
@@ -66,12 +67,14 @@
     <Compile Include="Query\IFolderQuery.cs" />
     <Compile Include="Query\IJobPostingQuery.cs" />
     <Compile Include="Query\IJobPurchaseQuery.cs" />
+    <Compile Include="Query\ISalesPackagesViewQuery.cs" />
     <Compile Include="Query\IViewRCAccountQuery.cs" />
     <Compile Include="Query\ViewModel\FolderDto.cs" />
     <Compile Include="Query\ViewModel\JobDetailByRecruiterDto.cs" />
     <Compile Include="Query\ViewModel\JobPostingDto.cs" />
     <Compile Include="Query\ViewModel\JobPurchaseDto.cs" />
     <Compile Include="Query\ViewModel\MyRCAccount.cs" />
+    <Compile Include="Query\ViewModel\SalesPackageViewDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MinhLam.Recruiter.Domain\MinhLam.Recruiter.Domain.csproj">

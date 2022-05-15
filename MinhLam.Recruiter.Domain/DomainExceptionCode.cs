@@ -39,5 +39,18 @@
         public const string RCFolderExists = "rc_folder_exists";
         public const string OverMaximumFolderCreate = "over_maximum_folder_create";
         public const string FolderNameRequiredField = "folder_name_required_field";
+        public const string RecruiterIdRequiredField = "recruiter_id_required_field";
+        public const string PaymentByRequiredField = "payment_by_required_field";
+        public const string PaymentTypeInvalid = "payment_type_invalid";
+        public const string PaymentCurrencyRequiredField = "payment_currency_empty";
+        public const string PaymentCurrencyInvalid = "payment_currency_invalid";
+        public const string SalesPackageIdRequiredField = "sales_package_id_required_field";
+        public const string PackageNameRequiredField = "package_name_required_field";
+        public const string CannotFoundPackage = "cannot_found_package";
+        public const string PackageNameInvalid = "package_name_invalid";
+        public const string PackageQuantityInvalid = "package_quantity_invalid";
+        public const string PackagePriceInvalid = "package_price_invalid";
+        public const string PackageTypeInvalid = "package_type_invalid";
+
     }
 }

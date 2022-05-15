@@ -23,6 +23,7 @@ namespace MinhLam.Recruiter.Infrastructure
         public DbSet<RCJobPosting> RCJobPostings { get; set; }
         public DbSet<SalesPackage> SalesPackage { get; set; }
         public DbSet<SalesPackageDetail> SalesPackageDetails { get; set; }
+        public DbSet<Package> Packages { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -38,6 +39,7 @@ namespace MinhLam.Recruiter.Infrastructure
             modelBuilder.Configurations.Add(new RCJobPostingConfiguration());
             modelBuilder.Configurations.Add(new SalesPackageConfiguration());
             modelBuilder.Configurations.Add(new SalesPackageDetailConfiguration());
+            modelBuilder.Configurations.Add(new PackageConfiguration());
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MinhLam.Recruiter.Application.Query;
 using MinhLam.Recruiter.Application.Query.ViewModel;
+using MinhLam.Recruiter.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,12 +76,27 @@ namespace MinhLam.Recruiter.Infrastructure.Applications.Query
                 Price = salesPackageDetail.PackagePrice,
                 PackageName = salesPackageDetail.PackageName,
                 Currency = salesPackage.PaymentCurrency,
-                PaymentBy = salesPackage.PaymentBy,
-                Status = salesPackage.PaidStatus ? "1" : "0",
-                PaidDate = salesPackage.PaidDate.ToString("dd/MM/yyyy")
+                PaymentBy = ConvertPaymentByToVietnamese(salesPackage.PaymentBy),
+                Status = salesPackage.PaidStatus ? "Đã thanh toán" : "Chưa thanh toán",
+                PaidDate = salesPackage.PaidDate.HasValue ? salesPackage.PaidDate.Value.ToString("dd/MM/yyyy") : string.Empty
             }).ToList();
 
             return results;
+        }
+
+        public string ConvertPaymentByToVietnamese(string paymentBy)
+        {
+            switch (paymentBy)
+            {
+                case "ATM Transfer":
+                    return "Chuyển khoản ATM";
+                case "Cash":
+                    return "Tiền mặt";
+                case "Bank Transfer":
+                    return "Chuyển khoản ngân hàng";
+                default:
+                    return string.Empty;
+            }
         }
     }
 }

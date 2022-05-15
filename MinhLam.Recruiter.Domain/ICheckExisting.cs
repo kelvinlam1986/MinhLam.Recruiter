@@ -23,5 +23,6 @@ namespace MinhLam.Recruiter.Domain
             int maxAge);
 
         bool RCFolderExistsWithId(Guid id);
+        bool PackageExistsWithId(Guid id);
     }
 }

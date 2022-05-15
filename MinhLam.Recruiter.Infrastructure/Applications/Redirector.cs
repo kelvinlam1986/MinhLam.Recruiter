@@ -25,6 +25,11 @@ namespace MinhLam.Recruiter.Infrastructure.Applications
             Redirect("Profile.aspx");
         }
 
+        public void GoToJobPurchases()
+        {
+            Redirect("JobPurchases.aspx");
+        }
+
         private void Redirect(string path)
         {
             HttpContext.Current.Response.Redirect(path);

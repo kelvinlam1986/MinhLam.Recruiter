@@ -19,6 +19,12 @@ namespace MinhLam.Recruiter.Infrastructure.Domains
             return folder != null;
         }
 
+        public bool PackageExistsWithId(Guid id)
+        {
+            var package = this.context.Packages.FirstOrDefault(x => x.Id == id);
+            return package != null;
+        }
+
         public bool ProvinceExistsWithId(Guid id)
         {
             var province = this.context.Provinces.FirstOrDefault(x => x.Id == id);

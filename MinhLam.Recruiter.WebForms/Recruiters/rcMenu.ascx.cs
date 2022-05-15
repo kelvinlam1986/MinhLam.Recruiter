@@ -97,6 +97,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                     break;
                 case "::Quản lý Tin tuyển dụng":
                 case "::Đặt mua":
+                case "::Quản lý đặt mua":
                 case "::Đăng tin":
                 case "::Resume Details":
                 case "::Tin chi tiết":
@@ -111,7 +112,7 @@ namespace MinhLam.Recruiter.WebForms.Recruiters
                     literal.Text = " | ";
                     this.panelMenu.Controls.Add(literal);
                     hyperLink = new HyperLink();
-                    hyperLink.Text = "Đặt mua";
+                    hyperLink.Text = "Quản lý đặt mua";
                     hyperLink.NavigateUrl = "jobpurchases.aspx";
                     this.panelMenu.Controls.Add(hyperLink);
                     literal = new Literal();
